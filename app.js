@@ -7,7 +7,19 @@ const myserver = http.createServer(function(req, res){
             res.writeHead(404, {'Content-Type': 'text/html'});
             return res.end("404 Not Found");
         }
-        res.writeHead(200, {'Content-Type': 'text/html'});
+        let mimeTypes = {
+            '.html': 'text/html',
+            '.js': 'text/javascript',
+            '.css': 'text/css',
+            '.json': 'application/json',
+            '.png': 'image/png',
+            '.jpg': 'image/jpg',
+            '.gif': 'image/gif',
+            '.svg': 'image/svg+xml'
+        };
+        let contentType = mimeTypes[extname] || 'application/octet-stream';
+
+        res.writeHead(200, {'Content-Type': contentType});
         res.write(data);
         return res.end();
     });
