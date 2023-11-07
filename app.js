@@ -1,5 +1,6 @@
 const http = require('http');
 const fs = require('fs');
+const path = require('path');
 
 const myserver = http.createServer(function(req, res){
     fs.readFile('lagohina.html', function(err, data) {
@@ -7,8 +8,7 @@ const myserver = http.createServer(function(req, res){
             res.writeHead(404, {'Content-Type': 'text/html'});
             return res.end("404 Not Found");
         }
-        
-        let extname = String(path.extname(filePath)).toLowerCase();
+
         let mimeTypes = {
             '.html': 'text/html',
             '.js': 'text/javascript',
@@ -20,9 +20,7 @@ const myserver = http.createServer(function(req, res){
             '.svg': 'image/svg+xml'
         };
 
-        let contentType = mimeTypes[extname] || 'application/octet-stream';
-
-        res.writeHead(200, {'Content-Type': contentType});
+        res.writeHead(200, {'Content-Type': mimeTypes});
         res.write(data);
         return res.end();
     });
