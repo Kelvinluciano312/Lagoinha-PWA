@@ -13,7 +13,8 @@
     <!-- This section is positioned on top of the container. -->
     <p>Place Logo Here!</p>
     <nav>
-      <ul>
+      <button class="menu-toggle">Menu</button>
+      <ul class="menu">
         <li><a href="#">Home</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">News</a></li>
@@ -22,7 +23,6 @@
         <li><a href="#">Admin Login</a></li>
       </ul>
     </nav>
-
   </div>
 
   <div class="container">
@@ -30,24 +30,18 @@
     <div class="inner-container">
       <header>
         <h1>Lagohina Connecticut Church</h1>
-        
       </header>
 
       <main>
-
         <section>
           <h2>Welcome</h2>
-          <p>Hi, I AM JOSE!</p>
-          <p>NICE TO MEET YOU!</p>
-          <p>IDK WHAT TO PUT HERE</p>
+          <p>Welcome to the Lagohina Connecticut Church Website</p>
+          <p>We are glad to have you with us.</p>
         </section>
-
       </main>
 
       <footer>
-        
       </footer>
-
     </div>
   </div>
 
@@ -55,6 +49,12 @@
     <!-- This section is positioned on the bottom of the container. -->
     <p>&copy; 2023 Lagohina CT. All rights reserved.</p>
   </div>
+
+  <script>
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+      document.querySelector('.menu').classList.toggle('show');
+    });
+  </script>
 
 </body>
 

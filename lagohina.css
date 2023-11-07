@@ -16,7 +16,7 @@
     margin: auto;
     padding: 20px;
     background-color: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(251, 249, 249, 0.2);
     border-radius: 5px;
 }
 
@@ -36,7 +36,7 @@
     padding: 20px;
     background-color: transparent;
     text-align: center;
-    color: #fff;
+    color: #000000;
 }
 
 /* ---------------------------------------- */
@@ -46,11 +46,11 @@ body {
     font-family: Arial, sans-serif;
     font-size: 16px;
     line-height: 1.5;
-    color: #fff;
+    color: #000000;
     background-color: #fff;
-    background-image: linear-gradient(rgba(7, 7, 7, 0.6),
+    /*background-image: linear-gradient(rgba(7, 7, 7, 0.6),
             rgba(7, 7, 7, 0.6)),
-        url("#");
+        url("#"); */
     background-size: 100%;
     background-repeat: repeat;
     margin: 0;
@@ -137,3 +137,13 @@ footer {
     padding: 20px;
     text-align: center;
 }
+
+
+.menu {
+    display: none;
+  }
+  
+  .menu.show {
+    display: block;
+  }
+  
