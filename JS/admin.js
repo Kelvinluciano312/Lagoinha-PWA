@@ -6,7 +6,7 @@ const path = require('path');
 // Configure Multer storage
 const storage = multer.diskStorage({
   destination: function(req, file, cb) {
-    cb(null, 'lagoIMG')
+    cb(null, '/lagoIMG')
   },
   filename: function(req, file, cb) {
     // Use the original name from the route
