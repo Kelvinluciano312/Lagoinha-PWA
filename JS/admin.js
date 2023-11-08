@@ -9,7 +9,7 @@ const storage = multer.diskStorage({
     cb(null, path.join(__dirname, 'lagoIMG'))
   },
   filename: function(req, file, cb) {
-    cb(null, req.file.fieldname + path.extname(file.originalname))
+    cb(null, file.fieldname + path.extname(file.originalname));
   }
 });
 
