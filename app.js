@@ -1,11 +1,11 @@
 const express = require('express');
 const app = express();
-const path = require('path');
-const adminRoutes = require('./admin.js');
-app.use(adminRoutes);
 
-const lagoRoutes = require('./lagoinha.js');
+const lagoRoutes = require('./JS/lagoinha.js');
 app.use(lagoRoutes);
+
+const adminRoutes = require('./JS/admin.js');
+app.use(adminRoutes);
 
 app.use(express.static('HTML'));
 app.use(express.static('CSS'));
