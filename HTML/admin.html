@@ -7,33 +7,45 @@
   <style>
     /* ... existing CSS ... */
     #slideshow {
-      width: 100px;
-      height: 100px;
+      width: 500px;
+      height: 500px;
     }
   </style>
 </head>
 <body>
+  <div class="section">
+    <!-- This section is positioned on top of the container. -->
+    <p>Place Logo Here!</p>
+    <nav>
+      <button class="menu-toggle">Menu</button>
+      <ul class="menu">
+        <li><a href="../lagoinha.html">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Calendar</a></li>
+        <li><a href="#">Prayers</a></li>
+        <li><a href="../admin.html">Admin Login</a></li>
+      </ul>
+    </nav>
+  </div>
   <h1>Admin Page</h1>
-  <p>Logo</p>
-  <form action="/logo.png" method="post" enctype="multipart/form-data">
+  <form action="/lagoIMG/logo.png" method="post" enctype="multipart/form-data">
     <input type="file" name="logo.png" accept="image/*">
     <input type="submit" value="Upload Image">
   </form>
-  <p>lagoHead</p>
-  <form action="/lagoHead.png" method="post" enctype="multipart/form-data">
+  <form action="/lagoIMG/lagoHead.png" method="post" enctype="multipart/form-data">
     <input type="file" name="lagoHead.png" accept="image/*">
     <input type="submit" value="Upload lagoHead">
   </form>
-  <p>sideBar</p>
-  <form action="/sideBar.png" method="post" enctype="multipart/form-data">
+  <form action="/lagoIMG/sideBar.png" method="post" enctype="multipart/form-data">
     <input type="file" name="sideBar.png" accept="image/*">
     <input type="submit" value="Upload sideBar">
-  </form>
+  </form>  
 
   <div id="slideshow">
-    <img src="/logo.png" alt="logo" class="slide" style="display:none">
-    <img src="/lagoHead.png" alt="lagoHead" class="slide" style="display:none">
-    <img src="/sideBar.png" alt="sideBar" class="slide" style="display:none">
+    <img src="/lagoIMG/logo.png?time=${new Date().getTime()}" alt="logo" class="slide" style="display:none">
+    <img src="/lagoIMG/lagoHead.png?time=${new Date().getTime()}" alt="lagoHead" class="slide" style="display:none">
+    <img src="/lagoIMG/sideBar.png?time=${new Date().getTime()}" alt="sideBar" class="slide" style="display:none">    
   </div>
 
   <script>
