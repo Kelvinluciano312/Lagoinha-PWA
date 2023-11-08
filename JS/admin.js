@@ -7,7 +7,7 @@ const sharp = require('sharp'); // Add this line
 // Configure Multer storage
 const storage = multer.diskStorage({
   destination: function(req, file, cb) {
-    cb(null, path.join(__dirname, 'lagoIMG'))
+    cb(null, path.join(__dirname, '../lagoIMG'))
   },
   filename: function(req, file, cb) {
     cb(null, file.fieldname + '.png'); // Change this line
