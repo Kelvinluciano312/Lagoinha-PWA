@@ -6,5 +6,5 @@ setInterval(function() {
         document.querySelector('#lagoHead').src = 'lagoIMG/' + data.lagoHead;
         document.querySelector('#sideBar').src = 'lagoIMG/' + data.sideBar;
       });
-  }, 3000);  // Fetch every 3 second
+  }, 5000);  // Fetch every 5 second
   
