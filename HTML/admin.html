@@ -4,6 +4,7 @@
   <title>Admin Page</title>
   <link rel="stylesheet" href="../admin.css">
   <script src="../admin.js"></script>
+  <script src="../admin-update.js"></script>
   <style>
     /* ... existing CSS ... */
     #slideshow {
@@ -28,9 +29,9 @@
   </form>   
 
   <div id="slideshow">
-    <img src="/logo.png?time=${new Date().getTime()}" alt="logo" class="slide" style="display:none">
-    <img src="/lagoHead.png?time=${new Date().getTime()}" alt="lagoHead" class="slide" style="display:none">
-    <img src="/sideBar.png?time=${new Date().getTime()}" alt="sideBar" class="slide" style="display:none">    
+    <img id="logo" src="/logo.png?time=${new Date().getTime()}" alt="logo" class="slide" style="display:none">
+    <img id="lagoHead" src="/lagoHead.png?time=${new Date().getTime()}" alt="lagoHead" class="slide" style="display:none">
+    <img id="sideBar" src="/sideBar.png?time=${new Date().getTime()}" alt="sideBar" class="slide" style="display:none">    
   </div>
 
   <script>
