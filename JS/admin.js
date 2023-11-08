@@ -19,4 +19,12 @@ router.post('/lagoIMG', upload.single('image'), (req, res) => {
   res.send('Image uploaded!');
 });
 
+router.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, '../HTML/admin.html'));
+});
+
+router.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, '../CSS/admin.css'));
+});
+
 module.exports = router;
