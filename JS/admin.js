@@ -20,7 +20,7 @@ const upload = multer({ storage: storage });
 ['logo.png', 'lagoHead.png', 'sideBar.png'].forEach(imagename => {
   router.post('/lagoIMG/' + imagename, upload.single(imagename), (req, res) => {
     // After handling the upload, redirect back to the admin page
-    res.redirect('../HTML/admin.html');
+    res.redirect('/admin.html');
   });
 });
 
