@@ -8,8 +8,8 @@
   <style>
     /* ... existing CSS ... */
     #slideshow {
-      width: 1920px;
-      height: 1080px;
+      width: 600px;
+      height: 600px;
     }
   </style>
 </head>
@@ -29,9 +29,9 @@
   </form>   
 
   <div id="slideshow">
-    <img id="logo" src="/logo.png?time=${new Date().getTime()}" alt="logo" class="slide" style="display:none">
-    <img id="lagoHead" src="/lagoHead.png?time=${new Date().getTime()}" alt="lagoHead" class="slide" style="display:none">
-    <img id="sideBar" src="/sideBar.png?time=${new Date().getTime()}" alt="sideBar" class="slide" style="display:none">    
+    <img id="logo" src="logo.png?time=${new Date().getTime()}" alt="logo" class="slide" style="display:none">
+    <img id="lagoHead" src="lagoHead.png?time=${new Date().getTime()}" alt="lagoHead" class="slide" style="display:none">
+    <img id="sideBar" src="sideBar.png?time=${new Date().getTime()}" alt="sideBar" class="slide" style="display:none">    
   </div>
 
   <script>
@@ -45,6 +45,11 @@
       preloadedImages[i] = new Image();
       preloadedImages[i].src = slides[i].src.split('?')[0] + '?uuid=' + generateUUID();
     }
+
+    window.onload = function() {
+      // Start the slideshow after all images are loaded
+      showSlides();
+    };
 
     function showSlides() {
       for (var i = 0; i < slides.length; i++) {
@@ -64,9 +69,7 @@
         return v.toString(16);
       });
     }
-
-
-
+    
   </script>
 </body>
 </html>
