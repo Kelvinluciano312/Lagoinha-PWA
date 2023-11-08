@@ -1,6 +1,7 @@
 const express = require('express');
 const multer = require('multer');
 const router = express.Router();
+const path = require('path');
 
 // Configure Multer storage
 const storage = multer.diskStorage({
@@ -19,3 +20,7 @@ router.post('lagoIMG', upload.single('image'), (req, res) => {
 });
 
 module.exports = router;
+
+router.get('/HTML/admin.html', (req, res) => {
+  res.sendFile(path.join(__dirname + '/HTML/admin.html'));
+});
