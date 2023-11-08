@@ -13,21 +13,6 @@
   </style>
 </head>
 <body>
-  <div class="section">
-    <!-- This section is positioned on top of the container. -->
-    <p>Place Logo Here!</p>
-    <nav>
-      <button class="menu-toggle">Menu</button>
-      <ul class="menu">
-        <li><a href="../lagoinha.html">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">News</a></li>
-        <li><a href="#">Calendar</a></li>
-        <li><a href="#">Prayers</a></li>
-        <li><a href="../admin.html">Admin Login</a></li>
-      </ul>
-    </nav>
-  </div>
   <h1>Admin Page</h1>
   <form action="/lagoIMG/logo.png" method="post" enctype="multipart/form-data">
     <input type="file" name="logo.png" accept="image/*">
@@ -43,9 +28,9 @@
   </form>  
 
   <div id="slideshow">
-    <img src="/lagoIMG/logo.png?time=${new Date().getTime()}" alt="logo" class="slide" style="display:none">
-    <img src="/lagoIMG/lagoHead.png?time=${new Date().getTime()}" alt="lagoHead" class="slide" style="display:none">
-    <img src="/lagoIMG/sideBar.png?time=${new Date().getTime()}" alt="sideBar" class="slide" style="display:none">    
+    <img src="/logo.png?time=${new Date().getTime()}" alt="logo" class="slide" style="display:none">
+    <img src="/lagoHead.png?time=${new Date().getTime()}" alt="lagoHead" class="slide" style="display:none">
+    <img src="/sideBar.png?time=${new Date().getTime()}" alt="sideBar" class="slide" style="display:none">    
   </div>
 
   <script>
