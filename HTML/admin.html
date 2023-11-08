@@ -38,23 +38,33 @@
     var slideIndex = 0;
     showSlides();
 
+    // Preload images
+    var slides = document.getElementsByClassName("slide");
+    var preloadedImages = [];
+    for (var i = 0; i < slides.length; i++) {
+      preloadedImages[i] = new Image();
+      preloadedImages[i].src = slides[i].src.split('?')[0] + '?uuid=' + generateUUID();
+    }
+
     function showSlides() {
-      var i;
-      var slides = document.getElementsByClassName("slide");
-      for (i = 0; i < slides.length; i++) {
+      for (var i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
       }
       slideIndex++;
       if (slideIndex > slides.length) {slideIndex = 1}
-      // Generate a UUID and append it to the image URL
-      var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-        return v.toString(16);
-      });
-      slides[slideIndex-1].src = slides[slideIndex-1].src.split('?')[0] + '?uuid=' + uuid;
+      // Use preloaded image
+      slides[slideIndex-1].src = preloadedImages[slideIndex-1].src;
       slides[slideIndex-1].style.display = "block";
       setTimeout(showSlides, 3000); // Change image every 3 seconds
     }
+
+    function generateUUID() {
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
+    }
+
 
 
   </script>
