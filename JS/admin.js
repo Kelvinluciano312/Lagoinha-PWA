@@ -9,10 +9,9 @@ const storage = multer.diskStorage({
     cb(null, path.join(__dirname, 'lagoIMG'))
   },
   filename: function(req, file, cb) {
-    cb(null, req.params.imagename + path.extname(file.originalname))
+    cb(null, req.file.fieldname + path.extname(file.originalname))
   }
 });
-
 
 const upload = multer({ storage: storage });
 
@@ -22,13 +21,22 @@ const upload = multer({ storage: storage });
   });
 });
 
-
 router.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '../HTML/admin.html'));
 });
 
 router.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '../CSS/admin.css'));
+});
+
+// New route for sending the latest images
+router.get('/latest-images', function(req, res) {
+  // Send the latest images
+  res.json({
+    logo: '/logo.png',
+    lagoHead: '/lagoHead.png',
+    sideBar: '/sideBar.png'
+  });
 });
 
 module.exports = router;
