@@ -4,6 +4,13 @@
   <title>Admin Page</title>
   <link rel="stylesheet" href="../admin.css">
   <script src="../admin.js"></script>
+  <style>
+    /* ... existing CSS ... */
+    #slideshow {
+      width: 100px;
+      height: 100px;
+    }
+  </style>
 </head>
 <body>
   <h1>Admin Page</h1>
@@ -23,8 +30,27 @@
     <input type="submit" value="Upload sideBar">
   </form>
 
-  <img src="/lagoIMG/logo.png" alt="logo">
-  <img src="/lagoIMG/lagoHead.png" alt="lagoHead">
-  <img src="/lagoIMG/sideBar.png" alt="sideBar">
+  <div id="slideshow">
+    <img src="/lagoIMG/logo.png" alt="logo" class="slide" style="display:none">
+    <img src="/lagoIMG/lagoHead.png" alt="lagoHead" class="slide" style="display:none">
+    <img src="/lagoIMG/sideBar.png" alt="sideBar" class="slide" style="display:none">
+  </div>
+
+  <script>
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      var i;
+      var slides = document.getElementsByClassName("slide");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}
+      slides[slideIndex-1].style.display = "block";
+      setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+  </script>
 </body>
 </html>
