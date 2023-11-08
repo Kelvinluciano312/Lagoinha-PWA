@@ -14,18 +14,18 @@
 </head>
 <body>
   <h1>Admin Page</h1>
-  <form action="/lagoIMG/logo.png" method="post" enctype="multipart/form-data">
-    <input type="file" name="logo.png" accept="image/*">
+  <form action="/lagoIMG/logo" method="post" enctype="multipart/form-data">
+    <input type="file" name="logo" accept="image/*">
     <input type="submit" value="Upload Logo">
   </form>
-  <form action="/lagoIMG/lagoHead.png" method="post" enctype="multipart/form-data">
-    <input type="file" name="lagoHead.png" accept="image/*">
+  <form action="/lagoIMG/lagoHead" method="post" enctype="multipart/form-data">
+    <input type="file" name="lagoHead" accept="image/*">
     <input type="submit" value="Upload Header">
   </form>
-  <form action="/lagoIMG/sideBar.png" method="post" enctype="multipart/form-data">
-    <input type="file" name="sideBar.png" accept="image/*">
+  <form action="/lagoIMG/sideBar" method="post" enctype="multipart/form-data">
+    <input type="file" name="sideBar" accept="image/*">
     <input type="submit" value="Upload Side Bar">
-  </form>  
+  </form>   
 
   <div id="slideshow">
     <img src="/logo.png?time=${new Date().getTime()}" alt="logo" class="slide" style="display:none">
