@@ -2,6 +2,7 @@ const express = require('express');
 const multer = require('multer');
 const router = express.Router();
 const path = require('path');
+const sharp = require('sharp'); // Add this line
 
 // Configure Multer storage
 const storage = multer.diskStorage({
@@ -9,7 +10,7 @@ const storage = multer.diskStorage({
     cb(null, path.join(__dirname, 'lagoIMG'))
   },
   filename: function(req, file, cb) {
-    cb(null, file.fieldname + path.extname(file.originalname));
+    cb(null, file.fieldname + '.png'); // Change this line
   }
 });
 
@@ -17,7 +18,12 @@ const upload = multer({ storage: storage });
 
 ['logo', 'lagoHead', 'sideBar'].forEach(imagename => {
   router.post('/lagoIMG/' + imagename, upload.single(imagename), (req, res) => {
-    res.redirect('/admin.html');
+    sharp(req.file.path) // Add these lines
+      .toFormat('png')
+      .toFile(req.file.path + '.png', (err, info) => {
+        if (err) throw err;
+        res.redirect('/admin.html');
+      });
   });
 });
 
