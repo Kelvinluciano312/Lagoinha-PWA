@@ -50,7 +50,11 @@
     <p>&copy; 2023 Lagoinha CT. All rights reserved.</p>
   </div>
 
-  <script src="/JS/lagoinha.js"></script>
+  <script>
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+        document.querySelector('.menu').classList.toggle('show');
+      });
+  </script>
 
 </body>
 
