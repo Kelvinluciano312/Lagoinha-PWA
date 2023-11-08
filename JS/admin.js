@@ -9,14 +9,18 @@ const storage = multer.diskStorage({
     cb(null, 'lagoIMG')
   },
   filename: function(req, file, cb) {
-    cb(null, Date.now() + '-' + file.originalname)
+    // Use the original name from the route
+    cb(null, req.params.imagename + path.extname(file.originalname))
   }
 });
 
 const upload = multer({ storage: storage });
 
-router.post('/lagoIMG', upload.single('image'), (req, res) => {
-  res.send('Image uploaded!');
+// Create separate routes for each image
+['logo.png', 'lagoHead.png', 'sideBar.png'].forEach(imagename => {
+  router.post('/lagoIMG/' + imagename, upload.single(imagename), (req, res) => {
+    res.send(imagename + ' uploaded!');
+  });
 });
 
 router.get('/', function(req, res) {
