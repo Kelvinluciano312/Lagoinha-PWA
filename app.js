@@ -12,3 +12,7 @@ app.listen(80, () => console.log('Server started on port 80'));
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/HTML/lagoinha.html'));
 });
+
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname + '/HTML/admin.html'));
+});
