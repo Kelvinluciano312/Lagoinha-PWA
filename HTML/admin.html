@@ -15,25 +15,25 @@
 <body>
   <h1>Admin Page</h1>
   <p>Logo</p>
-  <form action="/lagoIMG/logo.png" method="post" enctype="multipart/form-data">
-    <input type="file" name="image" accept="image/*">
+  <form action="/logo.png" method="post" enctype="multipart/form-data">
+    <input type="file" name="logo.png" accept="image/*">
     <input type="submit" value="Upload Image">
   </form>
   <p>lagoHead</p>
-  <form action="/lagoIMG/lagoHead" method="post" enctype="multipart/form-data">
-    <input type="file" name="lagoHead" accept="image/*">
+  <form action="/lagoHead.png" method="post" enctype="multipart/form-data">
+    <input type="file" name="lagoHead.png" accept="image/*">
     <input type="submit" value="Upload lagoHead">
   </form>
   <p>sideBar</p>
-  <form action="/lagoIMG/sideBar" method="post" enctype="multipart/form-data">
-    <input type="file" name="sideBar" accept="image/*">
+  <form action="/sideBar.png" method="post" enctype="multipart/form-data">
+    <input type="file" name="sideBar.png" accept="image/*">
     <input type="submit" value="Upload sideBar">
   </form>
 
   <div id="slideshow">
-    <img src="/lagoIMG/logo.png" alt="logo" class="slide" style="display:none">
-    <img src="/lagoIMG/lagoHead.png" alt="lagoHead" class="slide" style="display:none">
-    <img src="/lagoIMG/sideBar.png" alt="sideBar" class="slide" style="display:none">
+    <img src="/logo.png" alt="logo" class="slide" style="display:none">
+    <img src="/lagoHead.png" alt="lagoHead" class="slide" style="display:none">
+    <img src="/sideBar.png" alt="sideBar" class="slide" style="display:none">
   </div>
 
   <script>
@@ -49,7 +49,7 @@
       slideIndex++;
       if (slideIndex > slides.length) {slideIndex = 1}
       slides[slideIndex-1].style.display = "block";
-      setTimeout(showSlides, 2000); // Change image every 2 seconds
+      setTimeout(showSlides, 1000); // Change image every 1 second
     }
   </script>
 </body>
