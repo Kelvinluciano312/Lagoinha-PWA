@@ -8,24 +8,26 @@
 </head>
 <body>
   <h1>Admin Page</h1>
-  <form action="/lagoIMG/logo" method="post" enctype="multipart/form-data">
-    <input type="file" name="logo" accept="image/*">
-    <input type="submit" value="Upload Logo">
-  </form>
-  <form action="/lagoIMG/lagoHead" method="post" enctype="multipart/form-data">
-    <input type="file" name="lagoHead" accept="image/*">
-    <input type="submit" value="Upload Header">
-  </form>
-  <form action="/lagoIMG/sideBar" method="post" enctype="multipart/form-data">
-    <input type="file" name="sideBar" accept="image/*">
-    <input type="submit" value="Upload Side Bar">
-  </form>   
-
-  <div id="slideshow">
-    <img id="logo" src="logo.png?time=${new Date().getTime()}" alt="logo" class="slide" style="display:none">
-    <img id="lagoHead" src="lagoHead.png?time=${new Date().getTime()}" alt="lagoHead" class="slide" style="display:none">
-    <img id="sideBar" src="sideBar.png?time=${new Date().getTime()}" alt="sideBar" class="slide" style="display:none">    
+  <div class="form-container">
+    <form action="/lagoIMG/logo" method="post" enctype="multipart/form-data">
+      <input type="file" name="logo" accept="image/*">
+      <input type="submit" value="Upload Logo">
+    </form>
+    <img id="logo" src="logo.png?time=${new Date().getTime()}" alt="logo">
   </div>
-  <script src="/admin-slideshow.js"></script>
+  <div class="form-container">
+    <form action="/lagoIMG/lagoHead" method="post" enctype="multipart/form-data">
+      <input type="file" name="lagoHead" accept="image/*">
+      <input type="submit" value="Upload Header">
+    </form>
+    <img id="lagoHead" src="lagoHead.png?time=${new Date().getTime()}" alt="lagoHead">
+  </div>
+  <div class="form-container">
+    <form action="/lagoIMG/sideBar" method="post" enctype="multipart/form-data">
+      <input type="file" name="sideBar" accept="image/*">
+      <input type="submit" value="Upload Side Bar">
+    </form>
+    <img id="sideBar" src="sideBar.png?time=${new Date().getTime()}" alt="sideBar">
+  </div>
 </body>
 </html>
