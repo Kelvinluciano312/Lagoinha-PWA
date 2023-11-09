@@ -31,10 +31,6 @@ router.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '../HTML/admin.html'));
 });
 
-router.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, '../CSS/admin.css'));
-});
-
 // New route for sending the latest images
 router.get('/latest-images', function(req, res) {
   // Send the latest images
