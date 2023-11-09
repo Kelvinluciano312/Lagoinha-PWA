@@ -61,3 +61,8 @@ img {
     text-align: center;
     color: #000000;
 }
+
+#slideshow {
+    width: 600px;
+    height: 600px;
+  }
