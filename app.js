@@ -14,7 +14,6 @@ const adminRoutes = require('./JS/admin.js');
 
 // Use routes
 app.use(lagoRoutes);
-<<<<<<< HEAD
 app.use('/admin', adminRoutes);
 
 app.use((req, res) => {
@@ -22,8 +21,3 @@ app.use((req, res) => {
 });
 
 app.listen(80, () => console.log('Server started on port 80'));
-=======
-app.use(adminRoutes);
-
-app.listen(80, () => console.log('Server started on port 80'));
->>>>>>> c3144666bea6589220a6c22d6c2377f3b0f9d772
