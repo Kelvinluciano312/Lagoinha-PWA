@@ -14,6 +14,10 @@ const adminRoutes = require('./JS/admin.js');
 
 // Use routes
 app.use(lagoRoutes);
-app.use(adminRoutes);
+app.use('/admin', adminRoutes);
+
+app.use((req, res) => {
+    res.status(404).send('Error 404: Not Found');
+});
 
 app.listen(80, () => console.log('Server started on port 80'));
