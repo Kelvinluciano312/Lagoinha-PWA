@@ -2,7 +2,7 @@ const express = require('express');
 const multer = require('multer');
 const router = express.Router();
 const path = require('path');
-const sharp = require('sharp'); // Add this line
+const sharp = require('sharp');
 
 // Configure Multer storage
 const storage = multer.diskStorage({
