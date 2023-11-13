@@ -115,15 +115,14 @@ body {
 
 .sec2{
     text-align: left;
-
+    padding-left: 20px;
 }
 
 .hamburger-icon {
     display: none;
     cursor: pointer;
-    font-size: 35px;
+    font-size: 50px;
     padding: 15px;
-    padding-left: 20px;
     position: absolute;
     top: 10px;
     left: 10px;
