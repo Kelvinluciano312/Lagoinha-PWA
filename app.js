@@ -20,4 +20,9 @@ app.use((req, res) => {
     res.status(404).send('Error 404: Not Found');
 });
 
-app.listen(80, () => console.log('Server started on port 80'));
+app.listen(80, (err) => {
+    if (err) {
+      return console.error(err);
+    }
+    console.log('Server started on port 80');
+});
