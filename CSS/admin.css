@@ -1,106 +1,112 @@
-/* ... existing CSS ... */
-
+/* Styling for the form */
 form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
+/* Styling for the file input */
 input[type="file"] {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
+/* Styling for the submit button */
 input[type="submit"] {
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
 }
 
+/* Hover effect for the submit button */
 input[type="submit"]:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
+/* Styling for the images */
 img {
-    width: 600px;
-    height: 600px;
-    object-fit: cover;
-    margin-bottom: 20px;
+  width: 600px;
+  height: 600px;
+  object-fit: cover;
+  margin-bottom: 20px;
 }
 
 /* ---------------------------------------- */
 /* Divider Class Styles */
 /* ---------------------------------------- */
+
+/* Styling for the container */
 .container {
-    width: 100%;
-    height: 80%;
-    margin: auto;
-    padding: 20px;
-    background-color: transparent;
-    border: 1px solid rgba(251, 249, 249, 0.2);
-    border-radius: 5px;
+  width: 100%;
+  height: 80%;
+  margin: auto;
+  padding: 20px;
+  background-color: transparent;
+  border: 1px solid rgba(251, 249, 249, 0.2);
+  border-radius: 5px;
 }
 
+/* Styling for the inner container */
 .inner-container {
-    width: 80%;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Styling for the section */
 .section {
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px;
-    background-color: transparent;
-    text-align: center;
-    color: #000000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background-color: transparent;
+  text-align: center;
+  color: #000000;
 }
 
-#slideshow {
-    width: 600px;
-    height: 600px;
-  }
-
-
+/* Styling for the form container */
 .form-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  input[type="file"] {
-    margin-bottom: 10px;
-  }
-  
-  input[type="submit"] {
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-  }
-  
-  input[type="submit"]:hover {
-    background-color: #0056b3;
-  }
-  
-  img {
-    width: 100px;  /* Adjust as needed */
-    height: 100px;  /* Adjust as needed */
-    object-fit: cover;
-    margin-left: 20px;
-  }
-  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Styling for the form */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Styling for the file input */
+input[type="file"] {
+  margin-bottom: 10px;
+}
+
+/* Styling for the submit button */
+input[type="submit"] {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Hover effect for the submit button */
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Styling for the images */
+img {
+  width: 100px;  /* Adjust as needed */
+  height: 100px;  /* Adjust as needed */
+  object-fit: cover;
+  margin-left: 20px;
+}
