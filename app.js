@@ -7,7 +7,7 @@ const lagoRoutes = require('./JS/lagoinha.js');
 const adminRoutes = require('./JS/admin.js');
 
 // Use routes
-app.use(lagoRoutes);
+app.use('/lagoinha', lagoRoutes);
 app.use('/admin', adminRoutes);
 
 // Serve static files from the respective directories
