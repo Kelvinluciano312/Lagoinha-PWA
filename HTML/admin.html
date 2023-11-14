@@ -1,32 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <!-- Title of the page -->
   <title>Admin Page</title>
+
+  <!-- Link to the stylesheet -->
   <link rel="stylesheet" href="/admin.css">
+
+  <!-- JavaScript files -->
+  <!-- admin.js: Contains the logic for handling file uploads -->
   <script src="/admin.js"></script>
+  <!-- admin-update.js: Contains the logic for updating the images on the page -->
   <script src="/admin-update.js"></script>
 </head>
 <body>
+  <!-- Heading of the page -->
   <h1>Admin Page</h1>
+
+  <!-- Form for uploading logo -->
   <div class="form-container">
     <form action="/lagoIMG/logo" method="post" enctype="multipart/form-data">
       <input type="file" name="logo" accept="image/*">
       <input type="submit" value="Upload Logo">
     </form>
+    <!-- Displaying the logo -->
     <img id="logo" src="logo.png?time=${new Date().getTime()}" alt="logo">
   </div>
+
+  <!-- Form for uploading header image -->
   <div class="form-container">
     <form action="/lagoIMG/lagoHead" method="post" enctype="multipart/form-data">
       <input type="file" name="lagoHead" accept="image/*">
       <input type="submit" value="Upload Header">
     </form>
+    <!-- Displaying the header image -->
     <img id="lagoHead" src="lagoHead.png?time=${new Date().getTime()}" alt="lagoHead">
   </div>
+
+  <!-- Form for uploading sidebar image -->
   <div class="form-container">
     <form action="/lagoIMG/sideBar" method="post" enctype="multipart/form-data">
       <input type="file" name="sideBar" accept="image/*">
       <input type="submit" value="Upload Side Bar">
     </form>
+    <!-- Displaying the sidebar image -->
     <img id="sideBar" src="sideBar.png?time=${new Date().getTime()}" alt="sideBar">
   </div>
 </body>
