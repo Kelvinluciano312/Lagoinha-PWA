@@ -29,7 +29,7 @@ const upload = multer({ storage: storage });
           console.error(err);
           return res.status(500).send('Server error');
         }
-        res.redirect('../HTML/admin.html');
+        res.redirect('../admin.html');
       });
   });
 });
