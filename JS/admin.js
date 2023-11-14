@@ -22,7 +22,6 @@ const upload = multer({ storage: storage });
     if (!req.file) {
       return res.status(400).send('No file uploaded');
     }
-
     sharp(req.file.path)
       .toFormat('png')
       .toFile(req.file.path + '.png', (err, info) => { // Add '.png' here
@@ -30,7 +29,7 @@ const upload = multer({ storage: storage });
           console.error(err);
           return res.status(500).send('Server error');
         }
-        res.redirect('/admin.html');
+        res.redirect('../HTML/admin.html');
       });
   });
 });
