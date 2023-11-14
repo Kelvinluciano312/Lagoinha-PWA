@@ -20,7 +20,9 @@ const upload = multer({ storage: storage });
   router.post('/lagoIMG/' + imagename, upload.single(imagename), (req, res, next) => {
     // Check if file is provided
     if (!req.file) {
-      return res.status(400).send('No file uploaded');
+      res.status(400);
+      res.send('<html><head><meta http-equiv="refresh" content="3;url=/admin.html" /></head><body>No file uploaded. Redirecting...</body></html>');
+      return;
     }
     sharp(req.file.path)
       .toFormat('png')
