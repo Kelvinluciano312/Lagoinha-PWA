@@ -39,11 +39,11 @@ const upload = multer({ storage: storage });
 router.get('/', function(req, res, next) {
   res.sendFile(path.join(__dirname, '../HTML/admin.html'), function(err) {
     if (err) {
+      console.error(err);
       next(err);
     }
   });
 });
-
 
 // New route for sending the latest images
 router.get('/latest-images', function(req, res) {
