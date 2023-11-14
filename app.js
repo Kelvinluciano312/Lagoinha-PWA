@@ -25,5 +25,4 @@ app.listen(80, (err) => {
       return console.error(err);
     }
     console.log('Server started on port 80');
-  });
-  
+});
