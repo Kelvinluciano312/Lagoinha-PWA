@@ -8,7 +8,7 @@ const adminRoutes = require('./JS/admin.js');
 
 // Use routes
 app.use(lagoRoutes);
-app.use('/admin', adminRoutes);
+app.use(adminRoutes);
 
 // Serve static files from the respective directories
 app.use(express.static(path.join(__dirname, 'HTML')));
