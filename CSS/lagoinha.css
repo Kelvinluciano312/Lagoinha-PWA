@@ -21,7 +21,7 @@
 }
 
 .inner-container {
-    width: 80%;
+    width: 100%;
     margin: auto;
     padding: 20px;
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -66,10 +66,13 @@ body {
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
-    background-color: #111; /* Black*/
+    background-color: black; /* Black*/
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    background-image: url('sideBar.png');
+    background-size: cover; /* Adjust as needed */
+    background-position: left; /* Adjust as needed */
   }
 
   
@@ -78,8 +81,9 @@ body {
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 25px;
-    color: #818181;
+    font-size: 35px;
+    color: white;
+    -webkit-text-stroke: 1px black;
     display: block;
     transition: 0.3s;
   }
@@ -128,6 +132,12 @@ body {
     left: 10px;
 }
 
+.logo {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color:#007bff
+}
 
 
 
@@ -169,6 +179,10 @@ nav ul li a {
 nav ul li a:hover {
     background-color: #007bff;
     color: #fff;
+}
+
+.navbar {
+    background-color: #002da5;
 }
 
 /* ---------------------------------------- */
