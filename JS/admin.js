@@ -4,6 +4,31 @@ const multer = require('multer');
 const router = express.Router();
 const path = require('path');
 const sharp = require('sharp');
+const passport = require('passport'); // Import passport
+
+// Middleware for checking if the user is authenticated
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    // If the user is authenticated, allow them to proceed
+    return next();
+  }
+  // If the user is not authenticated, redirect them to the login page
+  res.redirect('/login');
+}
+
+// Login route
+router.post('/login', function(req, res, next) {
+  // Check if the username is correct
+  if (req.body.username !== 'lagoinhaconnecticut@gmail.com') {
+    return res.redirect('/login'); // Redirect back to login page if username is incorrect
+  }
+
+  // Proceed with authentication if username is correct
+  passport.authenticate('local', {
+    successRedirect: '/admin', // Redirect to admin page on successful login
+    failureRedirect: '/login' // Redirect back to login page on failed login
+  })(req, res, next);
+});
 
 // Configure Multer storage
 // This is where the uploaded files will be stored
@@ -45,7 +70,7 @@ const upload = multer({ storage: storage });
 });
 
 // Route for serving the admin page
-router.get('/', function(req, res, next) {
+router.get('/', ensureAuthenticated, function(req, res, next) {
   res.sendFile(path.join(__dirname, '../HTML/admin.html'), function(err) {
     if (err) {
       console.error(err);
