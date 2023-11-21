@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/myapp', {useNewUrlParser: true, useUnifiedTopology: true});
+
 // Importing required modules
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
@@ -12,7 +13,7 @@ app.use(session({
   resave: true,
   saveUninitialized: false,
   store: new MongoStore({
-    mongooseConnection: db // Your mongoose connection object
+    mongooseConnection: mongoose.connection // Use mongoose.connection here
   })
 }));
 
