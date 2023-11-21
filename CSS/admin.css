@@ -113,9 +113,10 @@ input[type="submit"]:hover {
 }
 
 /* Styling for the images */
+
 img {
-  width: 100px;  /* Adjust as needed */
-  height: 100px;  /* Adjust as needed */
+  width: 150px;  /* Adjust as needed */
+  height: 150px;  /* Adjust as needed */
   object-fit: cover;
-  margin-left: 20px;
+  border-radius: 10px;
 }
