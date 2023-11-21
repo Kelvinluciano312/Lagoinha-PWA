@@ -39,6 +39,12 @@ input[type="submit"] {
   cursor: pointer;
 }
 
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
 /* Hover effect for the submit button */
 input[type="submit"]:hover {
   background-color: #0056b3;
@@ -89,6 +95,7 @@ img {
 
 /* Styling for the form container */
 .form-container {
+  overflow: hidden;
   background-color: #d8d8d8;
   padding: 3%;
   display: flex;
@@ -131,4 +138,8 @@ img {
   height: 150px;  /* Adjust as needed */
   object-fit: cover;
   border-radius: 10px;
+}
+.imi{
+  width: 100%;  /* Adjust as needed */
+  height: 100%; 
 }
