@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/myapp', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://localhost:27017/', {useNewUrlParser: true, useUnifiedTopology: true});
 
 // Importing required modules
 const passport = require('passport');
@@ -9,7 +9,7 @@ const MongoStore = require('connect-mongo')(session);
 
 // Use sessions for tracking logins
 app.use(session({
-  secret: 'Lcc2023*', 
+  secret: 'Lcc2023!', 
   resave: true,
   saveUninitialized: false,
   store: new MongoStore({
