@@ -1,0 +1,63 @@
+
+* {
+    box-sizing: border-box
+}
+body {
+    font-family: "Lato", sans-serif;
+}
+
+.main-container{
+    margin: 5%;
+}
+
+/* Style the tab */
+.tab {
+    display: flex;
+    flex-direction: column;
+    float: left;
+    background-color: #d8d8d8;
+    width: 30%;
+    height: 300px;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  display: block;
+  background-color: inherit;
+  color: black;
+  padding: 130px 16px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #c6c6c6;
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+  background-color: #ffffff;
+}
+
+/* Style the tab content */
+.tabcontent {
+    
+    text-align: center;
+  float: left;
+  padding: 10px 12px;
+  width: 70%;
+  border-left: none;
+  height: 860px;
+}
+
+
+.instagram-media {
+    margin: 0 auto !important;
+
+}
