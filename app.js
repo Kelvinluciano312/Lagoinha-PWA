@@ -6,7 +6,7 @@ const path = require('path');
 
 // Set up express-session middleware
 app.use(session({
-  secret: 'your-secret-key', // Replace with your own secret key
+  secret: 'Lcc2023!', // Replace with your own secret key
   resave: false,
   saveUninitialized: true
 }));
