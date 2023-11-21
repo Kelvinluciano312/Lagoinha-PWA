@@ -8,7 +8,7 @@ const MongoStore = require('connect-mongo')(session);
 
 // Use sessions for tracking logins
 app.use(session({
-  secret: 'Lcc2023*', // Replace with your own secret key
+  secret: 'Lcc2023*', 
   resave: true,
   saveUninitialized: false,
   store: new MongoStore({
