@@ -4,7 +4,7 @@ const multer = require('multer');
 const router = express.Router();
 const path = require('path');
 const sharp = require('sharp');
-const passport = require('passport'); // Import passport
+const passport = require('passport');
 
 // Middleware for checking if the user is authenticated
 function ensureAuthenticated(req, res, next) {
