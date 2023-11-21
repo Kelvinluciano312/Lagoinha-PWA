@@ -1,8 +1,15 @@
 // Importing required modules
 const express = require('express');
+const session = require('express-session'); // Import express-session
 const app = express();
 const path = require('path');
 
+// Set up express-session middleware
+app.use(session({
+  secret: 'your-secret-key', // Replace with your own secret key
+  resave: false,
+  saveUninitialized: true
+}));
 
 // Import routes
 // These are the routes that handle the requests to the server
