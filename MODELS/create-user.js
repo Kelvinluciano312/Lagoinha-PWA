@@ -1,6 +1,6 @@
 // Importing required modules
 const mongoose = require('mongoose');
-const User = require('./MODELS/user.js'); // Path to your User model
+const User = require('../MODELS/user.js'); // Path to your User model
 
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost:27017/myapp', {useNewUrlParser: true, useUnifiedTopology: true});
