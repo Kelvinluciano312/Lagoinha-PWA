@@ -1,4 +1,11 @@
 /* Styling for the form */
+
+.main-container {
+
+  margin: 5%;
+
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -44,7 +51,6 @@ img {
   margin: auto;
   padding: 20px;
   background-color: transparent;
-  border: 1px solid rgba(251, 249, 249, 0.2);
   border-radius: 5px;
 }
 
@@ -71,10 +77,13 @@ img {
 
 /* Styling for the form container */
 .form-container {
+  background-color: #d8d8d8;
+  padding: 3%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
+  border-radius: 10px;
 }
 
 /* Styling for the form */
