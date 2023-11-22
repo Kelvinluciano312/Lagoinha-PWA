@@ -3,7 +3,7 @@ const express = require('express');
 const session = require('express-session'); // Import express-session
 const app = express();
 const path = require('path');
-const db = require('./db.js'); // Import db.js
+const db = require('./JS/db.js'); // Import db.js
 
 // Set up express-session middleware
 app.use(session({
