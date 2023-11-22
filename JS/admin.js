@@ -13,20 +13,20 @@ function ensureAuthenticated(req, res, next) {
     return next();
   }
   // If the user is not authenticated, redirect them to the login page
-  res.redirect('../HTML/login.html');
+  res.redirect('../login.html');
 }
 
 // Login route
 router.post('/login', function(req, res, next) {
   // Check if the username is correct
   if (req.body.username !== 'lagoinhaconnecticut@gmail.com') {
-    return res.redirect('../HTML/login.html'); // Redirect back to login page if username is incorrect
+    return res.redirect('../login.html'); // Redirect back to login page if username is incorrect
   }
 
   // Proceed with authentication if username is correct
   passport.authenticate('local', {
-    successRedirect: '../HTML/admin.html', // Redirect to admin page on successful login
-    failureRedirect: '../HTML/login.html' // Redirect back to login page on failed login
+    successRedirect: '../admin.html', // Redirect to admin page on successful login
+    failureRedirect: '../login.html' // Redirect back to login page on failed login
   })(req, res, next);
 });
 
@@ -71,7 +71,7 @@ const upload = multer({ storage: storage });
 
 // Route for serving the admin page
 router.get('/', ensureAuthenticated, function(req, res, next) {
-  res.sendFile(path.join(__dirname, '../HTML/admin.html'), function(err) {
+  res.sendFile(path.join(__dirname, '../admin.html'), function(err) {
     if (err) {
       console.error(err);
       next(err);
