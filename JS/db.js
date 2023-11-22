@@ -7,7 +7,7 @@ module.exports = function(app) {
   const MongoStore = require('connect-mongo')(session);
 
   // Connect to MongoDB
-  mongoose.connect('mongodb+srv://<username>:<password>@cluster0.mongodb.net/LagoinhaCT?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
+  mongoose.connect('mongodb+srv://dahvincis:Universoeh42@lagoct.2h5occ5.mongodb.net/?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
 
   // Use sessions for tracking logins
   app.use(session({
