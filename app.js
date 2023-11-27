@@ -1,15 +1,24 @@
 // Importing required modules
 const express = require('express');
 const session = require('express-session');
-const passport = require('passport'); // Add this line
+const passport = require('passport');
+const mongoose = require('mongoose');
+const MongoStore = require('connect-mongo');
+
 const app = express();
 const path = require('path');
 
 // Set up express-session middleware
+const store = MongoStore.create({
+  mongoUrl: 'mongodb+srv://dahvincis:Universoeh42@lagoct.2h5occ5.mongodb.net/?retryWrites=true&w=majority', // Replace with your MongoDB connection string
+  mongooseConnection: mongoose.connection
+});
+
 app.use(session({
-  secret: 'Lcc2023!', // Replace with your own secret key
+  secret: 'Lcc2023!',
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: true,
+  store: store
 }));
 
 app.use(passport.initialize());
