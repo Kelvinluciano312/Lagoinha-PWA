@@ -25,9 +25,9 @@ router.post('/login', function(req, res, next) {
 
   // Proceed with authentication if username is correct
   passport.authenticate('local', {
-    successRedirect: '../admin.html', // Redirect to admin page on successful login
-    failureRedirect: '../login.html' // Redirect back to login page on failed login
-  })(req, res, next);
+    successRedirect: '../HTML/admin.html',
+    failureRedirect: '../login.html'
+  })(req, res, next);  
 });
 
 // Configure Multer storage
@@ -71,13 +71,14 @@ const upload = multer({ storage: storage });
 
 // Route for serving the admin page
 router.get('/', ensureAuthenticated, function(req, res, next) {
-  res.sendFile(path.join(__dirname, '../admin.html'), function(err) {
+  res.sendFile(path.join(__dirname, '../HTML/admin.html'), function(err) {
     if (err) {
       console.error(err);
       next(err);
     }
   });
 });
+
 
 // New route for sending the latest images
 router.get('/latest-images', function(req, res) {
