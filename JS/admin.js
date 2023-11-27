@@ -18,8 +18,11 @@ function ensureAuthenticated(req, res, next) {
 
 // Login route
 router.post('/login', function(req, res, next) {
+  console.log('Login Route - Request Body:', req.body);
+
   // Check if the username is correct
   if (req.body.username !== 'lagoinhaconnecticut@gmail.com') {
+    console.log('Incorrect username. Redirecting to login.html');
     return res.redirect('../login.html'); // Redirect back to login page if username is incorrect
   }
 
@@ -27,7 +30,15 @@ router.post('/login', function(req, res, next) {
   passport.authenticate('local', {
     successRedirect: '../HTML/admin.html',
     failureRedirect: '../login.html'
-  })(req, res, next);  
+  })(req, res, function () {
+    console.log('User authenticated:', req.isAuthenticated());
+    console.log('User session:', req.session);
+
+    // You might also want to check req.user to see if the user object is populated
+
+    // Continue with the original callback logic if needed
+    next();
+  });  
 });
 
 // Configure Multer storage

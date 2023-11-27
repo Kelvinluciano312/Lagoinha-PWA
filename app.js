@@ -10,7 +10,7 @@ const path = require('path');
 
 // Set up express-session middleware
 const store = MongoStore.create({
-  mongoUrl: 'mongodb+srv://dahvincis:Universoeh42@lagoct.2h5occ5.mongodb.net/?retryWrites=true&w=majority', // Replace with your MongoDB connection string
+  mongoUrl: 'mongodb+srv://dahvincis:Universoeh42@lagoct.2h5occ5.mongodb.net/?retryWrites=true&w=majority',
   mongooseConnection: mongoose.connection
 });
 
