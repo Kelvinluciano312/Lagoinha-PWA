@@ -11,6 +11,9 @@ app.use(session({
   saveUninitialized: true
 }));
 
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Import routes
 // These are the routes that handle the requests to the server
 const lagoRoutes = require('./JS/lagoinha.js');
