@@ -3,12 +3,12 @@ const multer = require('multer');
 const router = express.Router();
 const path = require('path');
 const sharp = require('sharp');
-const passport = require('passport');
 const { ensureAuthenticated } = require('./authMiddleware');
+const { imageUploadPath, sequelize, User } = require('../db'); // Import the common path and sequelize instance
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, '../lagoIMG'));
+    cb(null, imageUploadPath);
   },
   filename: function (req, file, cb) {
     cb(null, file.fieldname);
@@ -18,11 +18,11 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 ['logo', 'lagoHead', 'sideBar'].forEach((imagename) => {
-  router.post('/lagoIMG/' + imagename, upload.single(imagename), (req, res, next) => {
+  // Use template literals for better readability
+  router.post(`/lagoIMG/${imagename}`, upload.single(imagename), (req, res, next) => {
     if (!req.file) {
       res.status(400);
-      res.send('<html><head><meta http-equiv="refresh" content="3;url=/admin.html" /></head><body>No file uploaded. Redirecting...</body></html>');
-      return;
+      return res.send('<html><head><meta http-equiv="refresh" content="3;url=/admin.html" /></head><body>No file uploaded. Redirecting...</body></html>');
     }
     sharp(req.file.path)
       .toFormat('png')

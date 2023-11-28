@@ -4,7 +4,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const { SequelizeSession } = require('connect-session-sequelize');
 
-const sequelize = new Sequelize('lagoct', 'admin', 'Lcc2023!', {
+const sequelize = new Sequelize('lagoct', 'lagoinhaconnecticut@gmail.com', 'Lcc2023!', {
   host: 'localhost',
   dialect: 'mysql',
 });
