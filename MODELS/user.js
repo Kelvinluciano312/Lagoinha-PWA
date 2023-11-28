@@ -1,15 +1,6 @@
-// Importing required modules
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
-const passportLocalMongoose = require('passport-local-mongoose');
+const Sequelize = require('sequelize');
 
-// Define User schema
-const UserSchema = new Schema({
-  username: { type: String, unique: true, required: true }, // Username field
+const User = sequelize.define('User', {
+  username: { type: Sequelize.STRING, unique: true, allowNull: false },
+  password: { type: Sequelize.STRING, allowNull: false },
 });
-
-// Add passportLocalMongoose plugin to User schema
-UserSchema.plugin(passportLocalMongoose);
-
-// Export User model
-module.exports = mongoose.model('User', UserSchema);

@@ -1,17 +1,16 @@
-// Importing required modules
-const mongoose = require('mongoose');
-const User = require('../user.js'); // Path to your User model
+const Sequelize = require('sequelize');
+const { User } = require('../db');
 
-// Connect to MongoDB
-mongoose.connect('mongodb+srv://dahvincis:Universoeh42@lagoct.2h5occ5.mongodb.net/', {useNewUrlParser: true, useUnifiedTopology: true});
-
-// Create a new user
-const newUser = new User({ username: 'lagoinhaconnecticut@gmail.com' });
-User.register(newUser, 'Lcc2023!', function(err, user) {
-  if (err) {
+sequelize
+  .sync()
+  .then(() => {
+    return User.create({ username: 'lagoinhaconnecticut@gmail.com', password: 'Lcc2023!' });
+  })
+  .then((user) => {
+    console.log('User created successfully:', user);
+    process.exit();
+  })
+  .catch((err) => {
     console.error('Error creating user:', err);
-    return;
-  }
-  console.log('User created successfully:', user);
-  process.exit(); // Terminate the script after creating the user
-});
+    process.exit(1);
+  });
