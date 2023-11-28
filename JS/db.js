@@ -2,10 +2,10 @@ const Sequelize = require('sequelize');
 const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-const { SequelizeSession } = require('connect-session-sequelize');
+const { Session } = require('express-session');
 
 // Declare sequelize instance
-const sequelize = new Sequelize('lagoct', 'lagoinhaconnecticut@gmail.com', 'Lcc2023!', {
+const sequelize = new Sequelize('lagoct', 'root', 'Universoeh42!', {
   host: 'localhost',
   dialect: 'mysql',
 });
@@ -16,6 +16,9 @@ const User = sequelize.define('User', {
   password: { type: Sequelize.STRING, allowNull: false },
 });
 
-const SequelizeStore = new SequelizeSession(session.Store);
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const sessionStore = new SequelizeStore({
+  db: sequelize,
+});
 
 module.exports = { sequelize, User, SequelizeStore }; // Export the sequelize instance, User model, and SequelizeStore
