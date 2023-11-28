@@ -6,11 +6,13 @@ const Sequelize = require('sequelize');
 const LocalStrategy = require('passport-local').Strategy;
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
+const { sequelize } = require('./db'); // Import the sequelize instance and User model
+
 const app = express();
 const path = require('path');
 
 // Connect to MySQL database
-const sequelize = new Sequelize('lagoct', 'admin', 'Lcc2023!', {
+const sequelize = new Sequelize('lagoct', 'lagoinhaconnecticut@gmail.com', 'Lcc2023!', {
   host: 'localhost',
   dialect: 'mysql',
 });
