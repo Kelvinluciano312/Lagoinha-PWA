@@ -1,34 +1,52 @@
-// Importing required modules
-const mongoose = require('mongoose');
+const Sequelize = require('sequelize');
+const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
+const { SequelizeSession } = require('connect-session-sequelize');
 
-// Connect to MongoDB
-mongoose.connect('mongodb+srv://dahvincis:Universoeh42@lagoct.2h5occ5.mongodb.net/?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true})
-  .then(() => {
-    console.log('Connected to MongoDB');
-  })
-  .catch(err => {
-    console.error('Error connecting to MongoDB:', err);
-  });
-
-// Use sessions for tracking logins
-const store = new MongoStore({
-  mongooseConnection: mongoose.connection
+const sequelize = new Sequelize('lagoct', 'admin', 'Lcc2023!', {
+  host: 'localhost',
+  dialect: 'mysql',
 });
 
-app.use(session({
-  secret: 'Lcc2023!', 
-  resave: true,
-  saveUninitialized: false,
-  store: store
-}));
+const User = sequelize.define('User', {
+  username: { type: Sequelize.STRING, unique: true, allowNull: false },
+  password: { type: Sequelize.STRING, allowNull: false },
+});
+
+const SequelizeStore = new SequelizeSession(session.Store);
+
+app.use(
+  session({
+    secret: 'Lcc2023!',
+    resave: false,
+    saveUninitialized: false,
+    store: new SequelizeStore({ db: sequelize }),
+  })
+);
 
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+passport.use(
+  new LocalStrategy(function (username, password, done) {
+    User.findOne({ where: { username: username } })
+      .then((user) => {
+        if (!user || !user.validPassword(password)) {
+          return done(null, false, { message: 'Incorrect username or password' });
+        }
+        return done(null, user);
+      })
+      .catch((err) => done(err));
+  })
+);
+
+passport.serializeUser(function (user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function (id, done) {
+  User.findByPk(id)
+    .then((user) => done(null, user))
+    .catch((err) => done(err));
+});
