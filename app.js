@@ -2,24 +2,12 @@
 const express = require('express');
 const session = require('express-session');
 const passport = require('passport');
-const Sequelize = require('sequelize');
-const LocalStrategy = require('passport-local').Strategy;
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
-
-const app = express();
 const path = require('path');
 
-// Connect to MySQL database
-const sequelize = new Sequelize('lagoct', 'admin', 'Lcc2023!', {
-  host: 'localhost',
-  dialect: 'mysql',
-});
+// Import sequelize instance, User model, and SequelizeStore
+const { sequelize, SequelizeStore } = require('./JS/db.js');
 
-// Define User model
-const User = sequelize.define('User', {
-  username: { type: Sequelize.STRING, unique: true, allowNull: false },
-  password: { type: Sequelize.STRING, allowNull: false },
-});
+const app = express();
 
 // Synchronize Sequelize models with the database
 sequelize.sync()
