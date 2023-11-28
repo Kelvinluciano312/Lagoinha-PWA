@@ -5,7 +5,7 @@ const passport = require('passport');
 const path = require('path');
 
 // Import sequelize instance, User model, and SequelizeStore
-const { sequelize, SequelizeStore } = require('./db');
+const { sequelize, SequelizeStore } = require('./JS/db.js');
 
 const app = express();
 
