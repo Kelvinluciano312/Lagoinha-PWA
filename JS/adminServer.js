@@ -3,7 +3,7 @@ const multer = require('multer');
 const sharp = require('sharp');
 const path = require('path');
 const { ensureAuthenticated } = require('../JS/authMiddleware.js');
-const { sequelize, User } = require('../JS/db.js');
+const { sequelize, SequelizeStore, User } = require('../JS/db.js');
 
 const router = express.Router();
 

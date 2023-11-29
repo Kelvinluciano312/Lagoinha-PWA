@@ -6,7 +6,8 @@ const LocalStrategy = require('passport-local').Strategy; // Add this line
 const path = require('path');
 
 // Import sequelize instance, User model, and SequelizeStore
-const { sequelize, SequelizeStore, User } = require('./JS/db.js');
+const { sequelize, SequelizeStore } = require('./JS/db.js');
+const User = require('./MODELS/user.js');
 
 const app = express();
 
