@@ -37,7 +37,7 @@ const upload = multer({ storage: storage });
 });
 
 router.get('/', ensureAuthenticated, function (req, res, next) {
-  res.sendFile(path.join(__dirname, '../HTML/admin.html'), function (err) {
+  res.sendFile(path.join(__dirname, './HTML/admin.html'), function (err) {
     if (err) {
       console.error(err);
       next(err);
