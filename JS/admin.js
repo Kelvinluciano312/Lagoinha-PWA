@@ -3,8 +3,8 @@ const multer = require('multer');
 const router = express.Router();
 const path = require('path');
 const sharp = require('sharp');
-const { ensureAuthenticated } = require('./authMiddleware');
-const { imageUploadPath, sequelize, User } = require('../db'); // Import the common path and sequelize instance
+const { ensureAuthenticated } = require('../JS/authMiddleware.js');
+const { sequelize, User } = require('../JS/db.js');
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -37,7 +37,7 @@ const upload = multer({ storage: storage });
 });
 
 router.get('/', ensureAuthenticated, function (req, res, next) {
-  res.sendFile(path.join(__dirname, '../HTML/admin.html'), function (err) {
+  res.sendFile(path.join(__dirname, './HTML/admin.html'), function (err) {
     if (err) {
       console.error(err);
       next(err);

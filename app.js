@@ -2,10 +2,11 @@
 const express = require('express');
 const session = require('express-session');
 const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy; // Add this line
 const path = require('path');
 
 // Import sequelize instance, User model, and SequelizeStore
-const { sequelize, SequelizeStore } = require('./JS/db.js');
+const { sequelize, SequelizeStore, User } = require('./JS/db.js');
 
 const app = express();
 
