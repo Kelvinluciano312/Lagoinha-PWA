@@ -38,6 +38,11 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use((req, res, next) => {
+  console.log('Session:', req.session);
+  next();
+});
+
 
 passport.use(
   new LocalStrategy(function (username, password, done) {
@@ -64,7 +69,7 @@ passport.deserializeUser(function (id, done) {
 
 // Import routes
 const lagoRoutes = require('./JS/lagoinha.js');
-const adminRoutes = require('./JS/admin.js');
+const adminRoutes = require('./JS/adminServer.js');
 
 // Use routes
 app.use(lagoRoutes);

@@ -1,10 +1,15 @@
 module.exports = {
   ensureAuthenticated: function (req, res, next) {
+    console.log('Checking authentication status');
+    console.log('Is authenticated?', req.isAuthenticated());
+    console.log('Passport session:', req.session.passport);
+
     if (req.isAuthenticated()) {
-      // If the user is authenticated, allow them to proceed
+      console.log('User is authenticated. Proceeding.');
       return next();
     }
-    // If the user is not authenticated, redirect them to the login page
+
+    console.log('User is not authenticated. Redirecting to login.');
     res.redirect('../login.html');
   },
 };
