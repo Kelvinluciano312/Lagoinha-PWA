@@ -2,7 +2,7 @@
 const express = require('express');
 const path = require('path');
 const router = express.Router();
-const db = require('./JS/db');
+const db = require('./JS/db.js');
 
 // Define routes for displaying and processing the login form
 router.get('/', (req, res) => {
