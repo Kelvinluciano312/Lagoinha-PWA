@@ -1,19 +1,21 @@
 // Import necessary modules and initialize the Express app
 const express = require('express');
 const path = require('path');
+const session = require('./JS/authMiddleware').initializeSession();
+
+// Create an Express app
 const app = express();
 
 // Import routes for different parts of the application
 const lagoRoutes = require('./JS/lagoinha.js');
-const adminRoutes = require('./JS/adminServer.js');
+const adminRoutes = require('./JS/admin.js');
+const loginRoutes = require('./JS/login.js');
 
-// Set up session middleware for user authentication
-const session = require('./JS/authMiddleware').initializeSession();
-
-// Use routes for various parts of the application
+// Use the defined routes
 app.use(lagoRoutes);
 app.use(adminRoutes);
-app.use(session);
+app.use(loginRoutes);
+app.use(session); // Use the session middleware for user authentication
 
 // Apply authentication middleware for admin routes
 const { isAuthenticated } = require('./JS/authMiddleware');
