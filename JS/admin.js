@@ -3,17 +3,21 @@ const express = require('express');
 const path = require('path');
 const router = express.Router();
 
-// Define route for admin dashboard, checking for admin session
 router.get('/', function (req, res, next) {
-  if (req.session.admin) {
-    res.sendFile(path.join(__dirname, './HTML/admin.html'));
+  // Check if the user is authenticated
+  const adminStatus = req.session.admin || false;
+
+  if (adminStatus) {
+    // Render the admin.html template if authenticated
+    res.sendFile(path.join(__dirname, '../HTML/admin.html'));
   } else {
+    // Redirect to login if not authenticated
     res.status(401).send('Unauthorized access. Please login as admin.');
   }
 });
 
-// Define route for retrieving latest images
 router.get('/latest-images', function (req, res) {
+  // Return JSON data for the latest images
   res.json({
     logo: '/logo.png',
     lagoHead: '/lagoHead.png',

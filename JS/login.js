@@ -2,9 +2,9 @@
 const express = require('express');
 const path = require('path');
 const router = express.Router();
-const db = require('./db');
+const db = require('./JS/db');
 
-// Define routes for displaying and processing login form
+// Define routes for displaying and processing the login form
 router.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, './HTML/login.html'));
 });
