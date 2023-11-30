@@ -1,7 +1,5 @@
 const express = require('express');
 const path = require('path');
-const { ensureAuthenticated } = require('../JS/authMiddleware.js');
-const { sequelize, User } = require('../JS/db.js');
 
 const router = express.Router();
 
