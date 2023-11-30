@@ -2,12 +2,7 @@
 const express = require('express');
 const path = require('path');
 const router = express.Router();
-const db = require('./JS/db.js');
-
-// Define routes for displaying and processing the login form
-router.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, './HTML/login.html'));
-});
+const db = require('../JS/db.js');
 
 // Check admin credentials and set session on successful login
 router.post('/', (req, res) => {
@@ -17,7 +12,7 @@ router.post('/', (req, res) => {
   if (username === 'admin' && password === 'Lcc2023!') {
     // Successful login
     req.session.admin = true;
-    res.redirect('/admin');
+    res.redirect('../HTML/admin.html');
   } else {
     // Failed login
     res.status(401).send('Invalid credentials');

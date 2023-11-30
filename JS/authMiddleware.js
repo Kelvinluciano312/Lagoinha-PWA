@@ -18,7 +18,8 @@ const initializeSession = () => {
     resave: false, // Do not save the session if it hasn't been modified
     saveUninitialized: true, // Save new sessions that haven't been modified
     cookie: {
-      secure: false,
+      secure: true,
+      sameSite: 'None',
     },
   });
 };
