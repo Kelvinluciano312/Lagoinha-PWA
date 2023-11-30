@@ -3,10 +3,10 @@ const mysql = require('mysql');
 
 // Create a connection to the MySQL database
 const connection = mysql.createConnection({
-  host: 'calcium-alchemy-398315:us-east1:lagoinhact', 
-  user: 'root', 
-  password: 'Universoeh42!', 
-  database: 'lagoct', 
+  host: '34.23.84.32',
+  user: 'admin',
+  password: 'Lcc2023!',
+  database: 'lagoADM',
 });
 
 // Log connection status or error
