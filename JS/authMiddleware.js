@@ -14,7 +14,7 @@ const isAuthenticated = (req, res, next) => {
 // Initialize session with provided configurations
 const initializeSession = () => {
   return session({
-    secret: 'aVeryStrongAndRandomSecretKey', // Set a strong secret key for the session
+    secret: 'initSession2023!', // Set a strong secret key for the session
     resave: false, // Do not save the session if it hasn't been modified
     saveUninitialized: true, // Save new sessions that haven't been modified
     cookie: {

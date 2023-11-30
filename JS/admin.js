@@ -9,7 +9,7 @@ router.get('/', function (req, res, next) {
 
   if (adminStatus) {
     // Render the admin.html template if authenticated
-    res.sendFile(path.join(__dirname, '../HTML/admin.html'));
+    res.sendFile(path.join(__dirname, './HTML/admin.html'));
   } else {
     // Redirect to login if not authenticated
     res.status(401).send('Unauthorized access. Please login as admin.');
