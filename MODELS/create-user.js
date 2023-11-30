@@ -1,5 +1,4 @@
-const Sequelize = require('sequelize');
-const { User } = require('../db');
+const { sequelize, User } = require('../JS/db.js');
 
 sequelize
   .sync()

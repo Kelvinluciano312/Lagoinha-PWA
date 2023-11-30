@@ -6,7 +6,8 @@ const LocalStrategy = require('passport-local').Strategy; // Add this line
 const path = require('path');
 
 // Import sequelize instance, User model, and SequelizeStore
-const { sequelize, SequelizeStore, User } = require('./JS/db.js');
+const { sequelize, SequelizeStore } = require('./JS/db.js');
+const User = require('./MODELS/user.js');
 
 const app = express();
 
@@ -38,6 +39,11 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use((req, res, next) => {
+  console.log('Session:', req.session);
+  next();
+});
+
 
 passport.use(
   new LocalStrategy(function (username, password, done) {
@@ -64,7 +70,7 @@ passport.deserializeUser(function (id, done) {
 
 // Import routes
 const lagoRoutes = require('./JS/lagoinha.js');
-const adminRoutes = require('./JS/admin.js');
+const adminRoutes = require('./JS/adminServer.js');
 
 // Use routes
 app.use(lagoRoutes);

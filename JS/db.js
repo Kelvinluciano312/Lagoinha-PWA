@@ -21,4 +21,4 @@ const sessionStore = new SequelizeStore({
   db: sequelize,
 });
 
-module.exports = { sequelize, User, SequelizeStore }; // Export the sequelize instance, User model, and SequelizeStore
+module.exports = { sequelize, Sequelize, User, SequelizeStore }; // Include Sequelize module
