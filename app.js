@@ -16,7 +16,7 @@ app.use(adminRoutes);
 app.use(session);
 
 // Apply authentication middleware for admin routes
-const { isAuthenticated } = require('./authMiddleware');
+const { isAuthenticated } = require('./JS/authMiddleware');
 app.use('/admin', isAuthenticated);
 
 // Serve static files (HTML, CSS, JS, images)
