@@ -1,17 +1,25 @@
-// Importing required modules
+// Import necessary modules and initialize the Express app
 const express = require('express');
 const path = require('path');
 const app = express();
 
-// Import routes
+// Import routes for different parts of the application
 const lagoRoutes = require('./JS/lagoinha.js');
 const adminRoutes = require('./JS/adminServer.js');
 
-// Use routes
+// Set up session middleware for user authentication
+const session = require('./JS/authMiddleware').initializeSession();
+
+// Use routes for various parts of the application
 app.use(lagoRoutes);
 app.use(adminRoutes);
+app.use(session);
 
-// Serve static files
+// Apply authentication middleware for admin routes
+const { isAuthenticated } = require('./authMiddleware');
+app.use('/admin', isAuthenticated);
+
+// Serve static files (HTML, CSS, JS, images)
 app.use(express.static(path.join(__dirname, 'HTML')));
 app.use(express.static(path.join(__dirname, 'CSS')));
 app.use(express.static(path.join(__dirname, 'JS')));
@@ -22,7 +30,7 @@ app.use((req, res) => {
   res.status(404).send('Error 404: Not Found');
 });
 
-// Start the server
+// Start the server on port 80
 app.listen(80, (err) => {
   if (err) {
     return console.error(err);
