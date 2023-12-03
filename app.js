@@ -14,7 +14,12 @@ app.use(express.static(path.join(__dirname, 'JS')));
 app.use(express.static(path.join(__dirname, 'lagoIMG')));
 
 // Use the session middleware for user authentication
-app.use(sessionMiddleware.initializeSession()); // Use the session middleware
+app.use(sessionMiddleware.initializeSession({
+  cookie: {
+    sameSite: 'None',
+    secure: true,
+  },
+})); // Use the session middleware
 
 // Parse JSON and URL-encoded data
 app.use(bodyParser.json());

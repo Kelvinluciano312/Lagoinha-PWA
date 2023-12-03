@@ -93,7 +93,7 @@
     </div>
   </div>
 
-  <!-- Add a placeholder for the login button -->
+  <!-- placeholder for the login button -->
   <div id="loginButtonPlaceholder">
     <button onclick="openLoginForm()">Login</button>
   </div>
@@ -128,18 +128,17 @@
     // Fetch admin status from server
     async function fetchAdminStatus() {
       try {
-        const response = await fetch('/admin/status');
+        const response = await fetch('/status', { credentials: 'include' });
         const data = await response.json();
-        console.log('Admin Status Response:', data); // Add this line
+        console.log('Admin Status Response:', data);
 
-        // Check the authentication status and update the UI accordingly
         const adminStatus = data.admin || false;
-        console.log('Admin Status:', adminStatus); // Add this line
+        console.log('Admin Status:', adminStatus);
         updateUI(adminStatus);
       } catch (error) {
         console.error('Error fetching admin status:', error);
       }
-}
+    }
 
   
     // Update the UI based on admin status

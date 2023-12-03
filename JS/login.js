@@ -21,6 +21,7 @@ router.post('/login', bodyParser.urlencoded({ extended: true }), async (req, res
       // Successful login
       console.log('Login successful');
       req.session.admin = true;
+      console.log('Session:', req.session); // Log session data
       res.redirect('../admin.html');
     } else {
       // Failed login
