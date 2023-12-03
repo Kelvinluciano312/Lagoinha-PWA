@@ -1,5 +1,5 @@
 
-
+/* Text*/
 .Text{
     text-align: center;
     padding-left: 30px;
@@ -7,7 +7,7 @@
 }
 
 
-
+/* Head description*/
 .l-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -33,7 +33,7 @@
 
 
 
-/* Aloha  */
+/*----------------------------------- Card Aloha ------------------------------------ */
 .b-game-card__cover{
     position: absolute;
     z-index: 1;
@@ -43,8 +43,7 @@
     background-position: center;
     background-size: cover;
 }
-
-
+/* Card */
 .b-game-aloha{
     background-image: url(/Aloha.jpg);
     position: relative;
@@ -55,6 +54,7 @@
     background-size: cover;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
+/* Card when hover*/
 .b-game-aloha:hover{
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     transform: translateY(-1%);
@@ -65,7 +65,7 @@
     transition: transform .35s ease-in-out;
     transform: rotateX(10deg);
 }
-
+/* Card Text*/
 .text-aloha{
     display: none;
     position: absolute;
@@ -102,7 +102,7 @@
 
 
 
-/* Geracao Eleita */
+/* --------------------------- Card Geracao Eleita -----------------------------------------*/
 .b-game-eleita{
     background-image: url(/Geracaoeleita.jpg);
     position: relative;
@@ -113,6 +113,7 @@
     background-size: cover;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
+/* Card when hover */
 .b-game-eleita:hover{
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     transform: translateY(-1%);
@@ -123,6 +124,7 @@
     transition: transform .35s ease-in-out;
     transform: rotateX(10deg);
 }
+/* Card text */
 .text-eleita{
     display: none;
     position: absolute;
@@ -144,7 +146,7 @@
 
 
 
-/* Legacy Casais */
+/* --------------------------- Card Legacy Casais -----------------------------------------*/
 .b-game-casais{
     background-image: url(/LegacyCasais.jpg);
     position: relative;
@@ -155,6 +157,7 @@
     background-size: cover;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
+/* Card when hover*/
 .b-game-casais:hover{
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     transform: translateY(-1%);
@@ -166,6 +169,7 @@
     transform: rotateX(10deg);
 
 }
+/* Card text*/
 .text-casais{
     display: none;
     position: absolute;
@@ -193,7 +197,7 @@
 
 
 
-/* Legacy Casais */
+/* --------------------------- Card Desperta -----------------------------------------*/
 .b-game-desperta{
     background-image: url(/desperta.jpg);
     position: relative;
@@ -204,6 +208,7 @@
     background-size: cover;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
+/* Card when hover*/ 
 .b-game-desperta:hover{
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     transform: translateY(-1%);
@@ -215,6 +220,7 @@
     transform: rotateX(10deg);
 
 }
+/* Card text*/
 .text-desperta{
     display: none;
     position: absolute;
@@ -242,7 +248,7 @@
 
 
 
-/* The Way */
+/* --------------------------- Card The Way -----------------------------------------*/
 .b-game-theway{
     background-image: url(/theway.jpg);
     position: relative;
@@ -253,6 +259,7 @@
     background-size: cover;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
+/* Card when hover*/
 .b-game-theway:hover{
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     transform: translateY(-1%);
@@ -264,6 +271,7 @@
     transform: rotateX(10deg);
 
 }
+/* Card text*/
 .text-theway{
     display: none;
     position: absolute;
@@ -288,7 +296,7 @@
 
 
 
-/* Metanoia */
+/* --------------------------- Card Metanoia -----------------------------------------*/
 .b-game-metanoia{
     background-image: url(/metanoia.jpeg);
     position: relative;
@@ -299,6 +307,7 @@
     background-size: cover;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
+/* Card when hover*/
 .b-game-metanoia:hover{
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     transform: translateY(-1%);
@@ -310,6 +319,7 @@
     transform: rotateX(10deg);
 
 }
+/* Card text*/
 .text-metanoia{
     display: none;
     position: absolute;
@@ -340,7 +350,7 @@
 
 
 
-/* Papo de Graca */
+/* --------------------------- Card Papo de Graca -----------------------------------------*/
 .b-game-papo{
     background-image: url(/papo.jpeg);
     position: relative;
@@ -351,6 +361,7 @@
     background-size: cover;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
+/* Card when hover*/
 .b-game-papo:hover{
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     transform: translateY(-1%);
@@ -362,6 +373,7 @@
     transform: rotateX(10deg);
 
 }
+/* Card text*/
 .text-papo{
     display: none;
     position: absolute;
@@ -390,7 +402,7 @@
 
 
 
-/* Rocket*/
+/* --------------------------- Card Rocket -----------------------------------------*/
 .b-game-rocket{
     background-image: url(/rocket.jpeg);
     position: relative;
@@ -401,6 +413,7 @@
     background-size: cover;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
+/* Card when hover*/
 .b-game-rocket:hover{
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     transform: translateY(-1%);
@@ -412,6 +425,7 @@
     transform: rotateX(10deg);
 
 }
+/* Card text*/
 .text-rocket{
     display: none;
     position: absolute;
@@ -437,7 +451,7 @@
 
 
 
-/* Zoe*/
+/* ---------------------------Card Zoe-----------------------------------------*/
 .b-game-zoe{
     background-image: url(/Zooe.jpeg);
     position: relative;
@@ -448,6 +462,7 @@
     background-size: cover;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
+/* Card Zoe when hover*/
 .b-game-zoe:hover{
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     transform: translateY(-1%);
@@ -459,6 +474,7 @@
     transform: rotateX(10deg);
 
 }
+/* Card Zoe Text*/
 .text-zoe{
     display: none;
     position: absolute;
