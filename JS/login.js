@@ -9,11 +9,11 @@ const bodyParser = require('body-parser');
 router.post('/login', bodyParser.urlencoded({ extended: true }), async (req, res) => {
   const { username, password } = req.body;
 
-  // Check for admin credentials in the database
+  // Check for specific admin credentials in the database
   const query = 'SELECT * FROM users WHERE username = ? AND password = ?';
-  db.query(query, [username, password], (error, results, fields) => {
-    if (error) {
-      console.error('Database error:', error);
+  db.query(query, [username, password], (err, results) => {
+    if (err) {
+      console.error('Database error:', err);
       return res.status(500).send('Server error');
     }
 

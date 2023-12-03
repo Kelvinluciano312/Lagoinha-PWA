@@ -30,7 +30,7 @@ app.use(lagoRoutes);
 
 // Apply authentication middleware for admin routes
 const { isAuthenticated } = require('./JS/authMiddleware');
-app.use('/admin', isAuthenticated);
+app.use('/admin/status', isAuthenticated);
 
 app.use(adminRoutes);
 app.use(loginRoutes);

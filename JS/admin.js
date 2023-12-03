@@ -10,9 +10,12 @@ function checkAdminStatus(req, res, next) {
 }
 
 // Route to retrieve admin status
+// Add this log to the /status route
 router.get('/status', checkAdminStatus, function (req, res, next) {
+  console.log('Admin Status Route Hit');
   res.json({ admin: res.locals.adminStatus });
 });
+
 
 // Route to render the admin.html template if authenticated
 router.get('/login', checkAdminStatus, function (req, res, next) {
