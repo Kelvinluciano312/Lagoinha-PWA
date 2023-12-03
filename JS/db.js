@@ -1,24 +1,22 @@
-const Sequelize = require('sequelize');
-const session = require('express-session');
-const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
-const { Session } = require('express-session');
+// Import the MySQL module
+const mysql = require('mysql');
 
-// Declare sequelize instance
-const sequelize = new Sequelize('lagoct', 'root', 'Universoeh42!', {
-  host: 'localhost',
-  dialect: 'mysql',
+// Create a connection to the MySQL database
+const connection = mysql.createConnection({
+  host: '34.23.84.32',
+  user: 'lagoinhact',
+  password: 'Lcc2023!',
+  database: 'lagoADM',
 });
 
-// Define User model
-const User = sequelize.define('User', {
-  username: { type: Sequelize.STRING, unique: true, allowNull: false },
-  password: { type: Sequelize.STRING, allowNull: false },
+// Log connection status or error
+connection.connect((err) => {
+  if (err) {
+    console.error('Error connecting to MySQL:', err);
+    return;
+  }
+  console.log('Connected to MySQL database');
 });
 
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
-const sessionStore = new SequelizeStore({
-  db: sequelize,
-});
-
-module.exports = { sequelize, User, SequelizeStore }; // Export the sequelize instance, User model, and SequelizeStore
+// Export the database connection for use in other files
+module.exports = connection;

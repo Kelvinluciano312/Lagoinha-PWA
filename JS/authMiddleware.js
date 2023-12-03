@@ -1,10 +1,28 @@
-module.exports = {
-  ensureAuthenticated: function (req, res, next) {
-    if (req.isAuthenticated()) {
-      // If the user is authenticated, allow them to proceed
-      return next();
-    }
-    // If the user is not authenticated, redirect them to the login page
-    res.redirect('../login.html');
-  },
+// Import the express-session module
+const session = require('express-session');
+
+// Define middleware for checking if the user is authenticated
+const isAuthenticated = (req, res, next) => {
+  // Check if the session contains the 'admin' property
+  if (req.session && req.session.admin) {
+    return next(); // User is authenticated, proceed to the next middleware
+  }
+  // Redirect to the login page if the user is not authenticated
+  res.status(401).json({ error: 'Unauthorized' });
 };
+
+// Initialize session with provided configurations
+const initializeSession = () => {
+  return session({
+    secret: 'initSession2023!', // Set a strong secret key for the session
+    resave: false, // Do not save the session if it hasn't been modified
+    saveUninitialized: true, // Save new sessions that haven't been modified
+    cookie: {
+      secure: true,
+      sameSite: 'None',
+    },
+  });
+};
+
+// Export middleware functions for use in other files
+module.exports = { isAuthenticated, initializeSession };

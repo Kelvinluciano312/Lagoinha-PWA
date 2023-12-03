@@ -1,56 +1,31 @@
 const express = require('express');
-const multer = require('multer');
-const router = express.Router();
 const path = require('path');
-const sharp = require('sharp');
-const { ensureAuthenticated } = require('../JS/authMiddleware.js');
-const { sequelize, User } = require('../JS/db.js');
+const router = express.Router();
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, imageUploadPath);
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.fieldname);
-  },
+// Middleware to check admin status
+function checkAdminStatus(req, res, next) {
+  console.log('Checking Admin Status');
+  const adminStatus = req.session.admin || false;
+  res.locals.adminStatus = adminStatus;
+  next();
+}
+
+
+// Route to retrieve admin status
+// Add this log to the /status route
+router.get('/status', checkAdminStatus, function (req, res, next) {
+  console.log('Admin Status Route Hit');
+  res.json({ admin: res.locals.adminStatus });
 });
 
-const upload = multer({ storage: storage });
 
-['logo', 'lagoHead', 'sideBar'].forEach((imagename) => {
-  // Use template literals for better readability
-  router.post(`/lagoIMG/${imagename}`, upload.single(imagename), (req, res, next) => {
-    if (!req.file) {
-      res.status(400);
-      return res.send('<html><head><meta http-equiv="refresh" content="3;url=/admin.html" /></head><body>No file uploaded. Redirecting...</body></html>');
-    }
-    sharp(req.file.path)
-      .toFormat('png')
-      .toFile(req.file.path + '.png', (err, info) => {
-        if (err) {
-          console.error(err);
-          return res.status(500).send('Server error');
-        }
-        res.redirect('../admin.html');
-      });
-  });
-});
-
-router.get('/', ensureAuthenticated, function (req, res, next) {
-  res.sendFile(path.join(__dirname, './HTML/admin.html'), function (err) {
-    if (err) {
-      console.error(err);
-      next(err);
-    }
-  });
-});
-
-router.get('/latest-images', function (req, res) {
-  res.json({
-    logo: '/logo.png',
-    lagoHead: '/lagoHead.png',
-    sideBar: '/sideBar.png',
-  });
+// Route to render the admin.html template if authenticated
+router.get('/admin', checkAdminStatus, function (req, res, next) {
+  if (res.locals.adminStatus) {
+    res.sendFile(path.join(__dirname, '../admin.html'));
+  } else {
+    res.status(401).send('Unauthorized access. Please login as admin.');
+  }
 });
 
 module.exports = router;

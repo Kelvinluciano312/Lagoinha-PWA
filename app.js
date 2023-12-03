@@ -1,87 +1,51 @@
-// Importing required modules
+// Import necessary modules and initialize the Express app
 const express = require('express');
-const session = require('express-session');
-const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy; // Add this line
 const path = require('path');
+const sessionMiddleware = require('./JS/authMiddleware'); // Changed the import to match your file
+const bodyParser = require('body-parser');
 
-// Import sequelize instance, User model, and SequelizeStore
-const { sequelize, SequelizeStore, User } = require('./JS/db.js');
-
+// Create an Express app
 const app = express();
 
-// Synchronize Sequelize models with the database
-sequelize.sync()
-  .then(() => {
-    console.log('Sequelize models synchronized with the database');
-  })
-  .catch((err) => {
-    console.error('Error synchronizing Sequelize models:', err);
-  });
-
-// Initialize SequelizeSession with express-session
-const sessionStore = new SequelizeStore({
-  db: sequelize,
-  checkExpirationInterval: 15 * 60 * 1000,
-  expiration: 24 * 60 * 60 * 1000,
-});
-
-// Use sessions for tracking logins
-app.use(
-  session({
-    secret: 'Lcc2023!',
-    resave: false,
-    saveUninitialized: false,
-    store: sessionStore,
-  })
-);
-
-app.use(passport.initialize());
-app.use(passport.session());
-
-passport.use(
-  new LocalStrategy(function (username, password, done) {
-    User.findOne({ where: { username: username } })
-      .then((user) => {
-        if (!user || !user.validPassword(password)) {
-          return done(null, false, { message: 'Incorrect username or password' });
-        }
-        return done(null, user);
-      })
-      .catch((err) => done(err));
-  })
-);
-
-passport.serializeUser(function (user, done) {
-  done(null, user.id);
-});
-
-passport.deserializeUser(function (id, done) {
-  User.findByPk(id)
-    .then((user) => done(null, user))
-    .catch((err) => done(err));
-});
-
-// Import routes
-const lagoRoutes = require('./JS/lagoinha.js');
-const adminRoutes = require('./JS/admin.js');
-
-// Use routes
-app.use(lagoRoutes);
-app.use(adminRoutes);
-
-// Serve static files
+// Serve static files (HTML, CSS, JS, images)
 app.use(express.static(path.join(__dirname, 'HTML')));
 app.use(express.static(path.join(__dirname, 'CSS')));
 app.use(express.static(path.join(__dirname, 'JS')));
 app.use(express.static(path.join(__dirname, 'lagoIMG')));
+
+// Use the session middleware for user authentication
+app.use(sessionMiddleware.initializeSession({
+  cookie: {
+    sameSite: 'None',
+    secure: true,
+  },
+})); // Use the session middleware
+
+// Parse JSON and URL-encoded data
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Import routes for different parts of the application
+const lagoRoutes = require('./JS/lagoinha.js');
+const adminRoutes = require('./JS/admin.js');
+const loginRoutes = require('./JS/login.js');
+
+// Use the defined routes
+app.use(lagoRoutes);
+
+// Apply authentication middleware for admin routes
+const { isAuthenticated } = require('./JS/authMiddleware');
+app.use('/admin/status', isAuthenticated);
+
+app.use(adminRoutes);
+app.use(loginRoutes);
 
 // Handle 404 errors
 app.use((req, res) => {
   res.status(404).send('Error 404: Not Found');
 });
 
-// Start the server
+// Start the server on port 80
 app.listen(80, (err) => {
   if (err) {
     return console.error(err);
