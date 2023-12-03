@@ -1,29 +1,31 @@
-// Import necessary modules and create an Express router
 const express = require('express');
 const path = require('path');
 const router = express.Router();
 
-router.get('/', function (req, res, next) {
-  // Check if the user is authenticated
+// Middleware to check admin status
+function checkAdminStatus(req, res, next) {
+  console.log('Checking Admin Status');
   const adminStatus = req.session.admin || false;
+  res.locals.adminStatus = adminStatus;
+  next();
+}
 
-  if (adminStatus) {
-    // Render the admin.html template if authenticated
-    res.sendFile(path.join(__dirname, './HTML/admin.html'));
+
+// Route to retrieve admin status
+// Add this log to the /status route
+router.get('/status', checkAdminStatus, function (req, res, next) {
+  console.log('Admin Status Route Hit');
+  res.json({ admin: res.locals.adminStatus });
+});
+
+
+// Route to render the admin.html template if authenticated
+router.get('/admin', checkAdminStatus, function (req, res, next) {
+  if (res.locals.adminStatus) {
+    res.sendFile(path.join(__dirname, '../admin.html'));
   } else {
-    // Redirect to login if not authenticated
     res.status(401).send('Unauthorized access. Please login as admin.');
   }
 });
 
-router.get('/latest-images', function (req, res) {
-  // Return JSON data for the latest images
-  res.json({
-    logo: '/logo.png',
-    lagoHead: '/lagoHead.png',
-    sideBar: '/sideBar.png',
-  });
-});
-
-// Export the router for use in other files
 module.exports = router;

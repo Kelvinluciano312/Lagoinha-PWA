@@ -1,10 +1,29 @@
 // Import necessary modules and initialize the Express app
 const express = require('express');
 const path = require('path');
-const session = require('./JS/authMiddleware').initializeSession();
+const sessionMiddleware = require('./JS/authMiddleware'); // Changed the import to match your file
+const bodyParser = require('body-parser');
 
 // Create an Express app
 const app = express();
+
+// Serve static files (HTML, CSS, JS, images)
+app.use(express.static(path.join(__dirname, 'HTML')));
+app.use(express.static(path.join(__dirname, 'CSS')));
+app.use(express.static(path.join(__dirname, 'JS')));
+app.use(express.static(path.join(__dirname, 'lagoIMG')));
+
+// Use the session middleware for user authentication
+app.use(sessionMiddleware.initializeSession({
+  cookie: {
+    sameSite: 'None',
+    secure: true,
+  },
+})); // Use the session middleware
+
+// Parse JSON and URL-encoded data
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Import routes for different parts of the application
 const lagoRoutes = require('./JS/lagoinha.js');
@@ -13,19 +32,13 @@ const loginRoutes = require('./JS/login.js');
 
 // Use the defined routes
 app.use(lagoRoutes);
-app.use(adminRoutes);
-app.use(loginRoutes);
-app.use(session); // Use the session middleware for user authentication
 
 // Apply authentication middleware for admin routes
 const { isAuthenticated } = require('./JS/authMiddleware');
-app.use('/admin', isAuthenticated);
+app.use('/admin/status', isAuthenticated);
 
-// Serve static files (HTML, CSS, JS, images)
-app.use(express.static(path.join(__dirname, 'HTML')));
-app.use(express.static(path.join(__dirname, 'CSS')));
-app.use(express.static(path.join(__dirname, 'JS')));
-app.use(express.static(path.join(__dirname, 'lagoIMG')));
+app.use(adminRoutes);
+app.use(loginRoutes);
 
 // Handle 404 errors
 app.use((req, res) => {

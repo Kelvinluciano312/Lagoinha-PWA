@@ -8,7 +8,7 @@ const isAuthenticated = (req, res, next) => {
     return next(); // User is authenticated, proceed to the next middleware
   }
   // Redirect to the login page if the user is not authenticated
-  res.redirect('/login');
+  res.status(401).json({ error: 'Unauthorized' });
 };
 
 // Initialize session with provided configurations
