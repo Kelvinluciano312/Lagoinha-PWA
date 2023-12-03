@@ -1,7 +1,7 @@
 // Import necessary modules and initialize the Express app
 const express = require('express');
 const path = require('path');
-const session = require('./JS/authMiddleware').initializeSession();
+const sessionMiddleware = require('./JS/authMiddleware'); // Changed the import to match your file
 const bodyParser = require('body-parser');
 
 // Create an Express app
@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, 'JS')));
 app.use(express.static(path.join(__dirname, 'lagoIMG')));
 
 // Use the session middleware for user authentication
-app.use(session);
+app.use(sessionMiddleware.initializeSession()); // Use the session middleware
 
 // Parse JSON and URL-encoded data
 app.use(bodyParser.json());

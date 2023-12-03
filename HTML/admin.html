@@ -50,35 +50,36 @@
     <h1>Admin Page</h1>
     <!-- Placeholder for content from admin.js -->
     <div id="adminContent">
-        <!-- Content to be revealed when logged in -->
-        <div class="form-container" id="logoContainer" style="display: none;">
-            <form action="/lagoIMG/logo" method="post" enctype="multipart/form-data">
-                <input class="imi" type="file" name="logo" accept="image/">
-                <input type="submit" value="Upload Logo">
-            </form>
-            <!-- Displaying the logo -->
-            <img id="logo" src="logo.png?time=${new Date().getTime()}" alt="logo">
-        </div>
+      <!-- Content to be revealed when logged in -->
+      <div class="form-container" id="logoContainer" style="display: none;">
+        <!-- Form for uploading logo image -->
+        <form action="/lagoIMG/logo" method="post" enctype="multipart/form-data">
+          <input class="imi" type="file" name="logo" accept="image/">
+          <input type="submit" value="Upload Logo">
+        </form>
+        <!-- Displaying the logo -->
+        <img id="logo" src="logo.png?time=${new Date().getTime()}" alt="logo">
+      </div>
 
-        <!-- Form for uploading header image -->
-        <div class="form-container" id="headerContainer" style="display: none;">
-            <form action="/lagoIMG/lagoHead" method="post" enctype="multipart/form-data">
-                <input class="imi" type="file" name="lagoHead" accept="image/">
-                <input type="submit" value="Upload Header">
-            </form>
-            <!-- Displaying the header image -->
-            <img id="lagoHead" src="lagoHead.png?time=${new Date().getTime()}" alt="lagoHead">
-        </div>
+      <!-- Form for uploading header image -->
+      <div class="form-container" id="headerContainer" style="display: none;">
+        <form action="/lagoIMG/lagoHead" method="post" enctype="multipart/form-data">
+          <input class="imi" type="file" name="lagoHead" accept="image/">
+          <input type="submit" value="Upload Header">
+        </form>
+        <!-- Displaying the header image -->
+        <img id="lagoHead" src="lagoHead.png?time=${new Date().getTime()}" alt="lagoHead">
+      </div>
 
-        <!-- Form for uploading sidebar image -->
-        <div class="form-container" id="sidebarContainer" style="display: none;">
-            <form action="/lagoIMG/sideBar" method="post" enctype="multipart/form-data">
-                <input class="imi" type="file" name="sideBar" accept="image/*">
-                <input type="submit" value="Upload Side Bar">
-            </form>
-            <!-- Displaying the sidebar image -->
-            <img id="sideBar" src="sideBar.png?time=${new Date().getTime()}" alt="sideBar">
-        </div>
+      <!-- Form for uploading sidebar image -->
+      <div class="form-container" id="sidebarContainer" style="display: none;">
+        <form action="/lagoIMG/sideBar" method="post" enctype="multipart/form-data">
+          <input class="imi" type="file" name="sideBar" accept="image/*">
+          <input type="submit" value="Upload Side Bar">
+        </form>
+        <!-- Displaying the sidebar image -->
+        <img id="sideBar" src="sideBar.png?time=${new Date().getTime()}" alt="sideBar">
+      </div>
     </div>
 
     <!-- Hidden login form -->
@@ -93,7 +94,7 @@
   </div>
 
   <script>
-
+    // Function to handle login
     async function handleLogin() {
       const username = document.getElementById('username').value;
       const password = document.getElementById('password').value;
@@ -148,7 +149,6 @@
         sidebarContainer.style.display = 'none';
       }
     }
-
 
     // Fetch admin status when the page loads
     document.addEventListener('DOMContentLoaded', async function () {
