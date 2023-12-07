@@ -29,12 +29,13 @@ body {
 
 /* Style the tab */
 .tab {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-direction: column;
-    float: left;
+    flex-direction: row;
+    float: top;
     background-color: #d8d8d8;
-    width: 30%;
-    height: 300px;
+    width: 100%;
+    height: 100px;
 }
 
 /* Style the buttons inside the tab */
@@ -42,7 +43,6 @@ body {
   display: block;
   background-color: inherit;
   color: black;
-  padding: 130px 16px;
   width: 100%;
   border: none;
   outline: none;
@@ -64,13 +64,20 @@ body {
 
 /* Style the tab content */
 .tabcontent {
-    
-    text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  
+  text-align: center;
   float: left;
   padding: 10px 12px;
-  width: 70%;
+  width: 100%;
   border-left: none;
   height: 860px;
+}
+.youtubevid{
+  margin: 35px;
+  width: 80%;
+  height: 350px;
+
+
 }
 
 
