@@ -92,11 +92,6 @@
     </div>
   </div>
 
-  <!-- placeholder for the login button -->
-  <div id="loginButtonPlaceholder">
-    <button onclick="openLoginForm()">Login</button>
-  </div>
-
   <script>
     function openLoginForm() {
       document.getElementById('loginForm').style.display = 'block';
@@ -131,7 +126,7 @@
         const data = await response.json();
         console.log('Admin Status Response:', data);
 
-        const adminStatus = data.admin || false;
+        const adminStatus = data.admin || true;
         console.log('Admin Status:', adminStatus);
         updateUI(adminStatus);
       } catch (error) {

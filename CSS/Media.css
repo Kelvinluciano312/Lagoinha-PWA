@@ -30,7 +30,7 @@ body {
 /* Style the tab */
 .tab {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     float: left;
     background-color: #d8d8d8;
     width: 30%;
@@ -40,11 +40,10 @@ body {
 /* Style the buttons inside the tab */
 .tab button {
   display: block;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
+  background-color: inherit;
   color: black;
-  padding: 10vw;
+  padding: 130px 16px;
+  width: 100%;
   border: none;
   outline: none;
   text-align: center;
@@ -65,10 +64,11 @@ body {
 
 /* Style the tab content */
 .tabcontent {
-  display: none;
-  text-align: center;
+    
+    text-align: center;
+  float: left;
   padding: 10px 12px;
-  width: 100%;
+  width: 70%;
   border-left: none;
   height: 860px;
 }
@@ -77,11 +77,4 @@ body {
 .instagram-media {
     margin: 0 auto !important;
 
-}
-
-.inner-container h2 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  text-align: center;
 }
