@@ -17,3 +17,13 @@ function closeNav() {
   // Set the background color of the body to white
   document.body.style.backgroundColor = "white";
 }
+
+
+function closeNavOnResize() {
+  if (window.innerWidth > 991) {
+    closeNav();
+  }
+}
+
+// Add an event listener for window resize
+window.addEventListener('resize', closeNavOnResize);
