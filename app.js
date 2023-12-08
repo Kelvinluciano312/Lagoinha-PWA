@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, 'lagoIMG')));
 app.use(sessionMiddleware.initializeSession({
   cookie: {
     sameSite: 'None',
-    secure: true,
+    secure: false,
   },
 })); // Use the session middleware
 
@@ -29,6 +29,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const lagoRoutes = require('./JS/lagoinha.js');
 const adminRoutes = require('./JS/admin.js');
 const loginRoutes = require('./JS/login.js');
+const adminServerRoutes = require('./JS/adminServer.js');
 
 // Use the defined routes
 app.use(lagoRoutes);
@@ -39,6 +40,7 @@ app.use('/admin/status', isAuthenticated);
 
 app.use(adminRoutes);
 app.use(loginRoutes);
+app.use(adminServerRoutes);
 
 // Handle 404 errors
 app.use((req, res) => {

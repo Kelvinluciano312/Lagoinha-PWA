@@ -22,11 +22,11 @@ router.post('/login', bodyParser.urlencoded({ extended: true }), async (req, res
       console.log('Login successful');
       req.session.admin = true;
       console.log('Session:', req.session); // Log session data
-      res.redirect('../admin.html');
+      res.json({ success: true, message: 'Login successful' });
     } else {
       // Failed login
       console.log('Login failed');
-      res.status(401).send('Invalid credentials');
+      res.status(401).json({ success: false, message: 'Invalid credentials' });
     }
   });
 });
