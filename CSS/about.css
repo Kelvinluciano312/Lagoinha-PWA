@@ -20,9 +20,7 @@
 .photobanner {
   animation: bannermove 60s linear infinite alternate-reverse;
 }
-.photobanner:hover{
-    animation-play-state: paused;
-}
+
 
 @keyframes bannermove {
   from {
