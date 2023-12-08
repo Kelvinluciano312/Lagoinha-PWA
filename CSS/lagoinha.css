@@ -23,7 +23,8 @@
     height: auto;
     margin: auto;
     padding: 12px;
-    background-color: #3c3c3c;
+    background-image: url("lagoHead.png");
+    background-color: #212121;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -199,7 +200,7 @@ nav ul li a:hover {
 }
 
 .navbar {
-    background-color: #3c3c3c;
+    background-color: #212121;
 }
 
 /* ---------------------------------------- */
