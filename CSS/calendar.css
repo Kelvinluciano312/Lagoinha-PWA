@@ -1,3 +1,6 @@
+body{
+    background-color: #f1f1f1;
+  }
 /* Styles for the titlediv */
 .titlediv {
     text-align: center;
