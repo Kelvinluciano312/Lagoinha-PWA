@@ -17,84 +17,65 @@
 </head>
 
 <body>
-<!-- This is positioned on top of the container. -->
-<div class="navbar-container">
-    <nav class="navbar navbar-expand-lg">
-        <button class="navbar-toggler" type="button" onclick="openNav()" data-toggle="collapse"
-                data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand navbar-brand-centered" href="#">
-            <img src="/logo.png" alt="Logo" height="50" style="clip-path: circle();">
-        </a>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto"> <!--<ul class="navbar-nav ms-auto"> for the items to be on the right -->
-                <li class="nav-item active">
-                    <a class="nav-link text-white" href="lagoinha.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="about.html">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="groups.html">Groups</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="calendar.html">Calendar</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="Media.html">Media</a>
-                </li>
-                <!-- Add more navigation items as needed -->
-            </ul>
+    <!-- This is positioned on top of the container. -->
+    <div class="navbar-container">
+        <nav class="navbar navbar-expand-lg">
+            <button class="navbar-toggler" type="button" onclick="openNav()" data-toggle="collapse"
+                    data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand navbar-brand-centered" href="#">
+                <img src="/logo.png" alt="Logo" height="50" style="clip-path: circle();">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto"> <!--<ul class="navbar-nav ms-auto"> for the items to be on the right -->
+                    <li class="nav-item active">
+                        <a class="nav-link text-white" href="lagoinha.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="groups.html">Groups</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="calendar.html">Calendar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="Media.html">Media</a>
+                    </li>
+                    <!-- Add more navigation items as needed -->
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- The side navigation bar. -->
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="lagoinha.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="groups.html">Groups</a>
+        <a href="calendar.html">Calendar</a>
+        <a href="Media.html">Media</a>
+        <a href="admin.html">Admin </a>
+    </div>
+    <!-- The slideshow. -->
+    <div class="display-container">
+        <img class="mySlides slideshow-fade" src="/slideshow1.jpg" style="width:100%">
+        <img class="mySlides slideshow-fade" src="/slideshow2.jpg" style="width:100%">
+        <div class="slideshow-text">
+            <h1>WELCOME TO THE NEW</h1>
         </div>
-    </nav>
-</div>
-<!-- The side navigation bar. -->
-
-<div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="lagoinha.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="groups.html">Groups</a>
-    <a href="calendar.html">Calendar</a>
-    <a href="Media.html">Media</a>
-    <a href="admin.html">Admin </a>
-</div>
-
-<!-- The slideshow. -->
-<div class="display-container">
-    <img class="mySlides slideshow-fade" src="/slideshow1.jpg" style="width:100%">
-    <img class="mySlides slideshow-fade" src="/slideshow2.jpg" style="width:100%">
-    <div class="slideshow-text">
-        <h1>This is Lagoinha</h1>
     </div>
-</div>
 
-<div class="container">
-    <!-- Main content of the website goes here. More to follow. -->
-    <div class="inner-container">
-        <main>
-            <header>
-                <!-- <h1><img src="/lagoHead.png" alt="Header" width="100px"></h1> -->
-                <h1>Welcome</h1>
-            </header>
-
-            <section>
-                <p>Welcome to the Lagoinha Connecticut Church Website</p>
-                <p>We are glad to have you with us.</p>
-            </section>
-
-        </main>
+    <!-- This section is positioned on the bottom of the container. -->
+    <div class="section">
+        <p>&copy; 2023 Lagoinha CT. All rights reserved.</p>
     </div>
-</div>
 
-<!-- This section is positioned on the bottom of the container. -->
-<div class="section">
-    <p>&copy; 2023 Lagoinha CT. All rights reserved.</p>
-</div>
-
-<script src="/slideshow.js"></script>
+    <script src="/slideshow.js"></script>
 
 </body>
 

@@ -53,7 +53,7 @@ body {
     font-size: 16px;
     line-height: 1.5;
     color: #000000;
-    background-color: #fff;
+    background-color: #f1f1f1;
     /*background-image: linear-gradient(rgba(7, 7, 7, 0.6),
             rgba(7, 7, 7, 0.6)),
         url("#"); */
@@ -263,7 +263,11 @@ ul li {
 
 
 .slideshow-text h1 {
-    font-size: 5vw;
+    font-size: 4vw;
+    font-family: Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    color: #c9c9c9;
 
 }
 
@@ -307,9 +311,8 @@ footer {
 
 .menu {
     display: none;
-  }
+}
   
-  .menu.show {
+.menu.show {
     display: block;
-  }
-  
+}
