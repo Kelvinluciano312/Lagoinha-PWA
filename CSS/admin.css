@@ -1,23 +1,25 @@
-  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-  #main {
-    transition: margin-left .5s;
-    padding: 20px;
-  }
-  
-  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  }
-
-/* Styling for the form */
-
-.main-container {
-
-  margin: 5%;
-
+/* Styles for the page content */
+#main {
+  transition: margin-left .5s;
+  padding: 20px;
 }
 
+/* On smaller screens, where height is less than 450px, adjust the style of the sidenav */
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+/* Styling for the main container */
+.main-container {
+  margin: 5%;
+}
+
+/* Styling for the form */
 form {
   display: flex;
   flex-direction: column;
@@ -39,12 +41,6 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  }
-
 /* Hover effect for the submit button */
 input[type="submit"]:hover {
   background-color: #0056b3;
@@ -58,9 +54,7 @@ img {
   margin-bottom: 20px;
 }
 
-/* ---------------------------------------- */
 /* Divider Class Styles */
-/* ---------------------------------------- */
 
 /* Styling for the container */
 .container {
@@ -105,19 +99,19 @@ img {
   border-radius: 10px;
 }
 
-/* Styling for the form */
+/* Repeat styling for the form */
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Styling for the file input */
+/* Repeat styling for the file input */
 input[type="file"] {
   margin-bottom: 10px;
 }
 
-/* Styling for the submit button */
+/* Repeat styling for the submit button */
 input[type="submit"] {
   padding: 10px;
   border-radius: 5px;
@@ -126,20 +120,21 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-/* Hover effect for the submit button */
+/* Repeat hover effect for the submit button */
 input[type="submit"]:hover {
   background-color: #0056b3;
 }
 
-/* Styling for the images */
-
+/* Repeat styling for the images */
 img {
   width: 150px;  /* Adjust as needed */
   height: 150px;  /* Adjust as needed */
   object-fit: cover;
   border-radius: 10px;
 }
-.imi{
+
+/* Additional styling for the .imi class */
+.imi {
   width: 100%;  /* Adjust as needed */
   height: 100%; 
 }
