@@ -24,64 +24,88 @@ body {
   margin: 5%;
 }
 
-/* On smaller screens, where height is less than 450px, change the style 
-of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+/* On smaller screens, where width is less than 450px, change the style of the sidenav */
+@media screen and (max-width: 450px) {
+  .sidenav { padding-top: 15px; }
+  .sidenav a { font-size: 18px; }
+  .tab {
+    flex-direction: column; /* Stack buttons vertically on smaller screens */
+    align-items: center; /* Center buttons horizontally on smaller screens */
+    width: 100%; /* Make sure buttons take full width */
+  }
+
+  /* Adjust spacing for smaller screens */
+  .tabcontent {
+    margin-top: 10px;
+  }
+
+  .youtubevid {
+    width: 100%;
+  }
 }
 
 /* Style the tab */
 .tab {
   display: flex;
   flex-direction: row;
-  float: left;
-  background-color: #d8d8d8;
-  width: 30%;
-  height: 300px;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 /* Style the buttons inside the tab */
 .tab button {
-display: block;
-justify-content: center;
-align-items: center;
-background-color: transparent;
-color: black;
-padding: 10vw;
-border: none;
-outline: none;
-text-align: center;
-cursor: pointer;
-transition: 0.3s;
-font-size: 17px;
+  padding: 15px; /* Adjust the padding to make buttons larger */
+  font-size: 16px; /* Adjust the font size */
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  width: 100%; /* Make buttons take full width */
+  margin-bottom: 10px; /* Add some space between buttons */
 }
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-background-color: #c6c6c6;
+  background-color: #000000;
+  box-shadow: 0px 15px 20px rgba(117, 118, 117, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
 }
 
 /* Create an active/current "tab button" class */
 .tab button.active {
-background-color: #ffffff;
+  letter-spacing: 3px;
+  background-color: #212121;
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
+  transform: translateY(10px);
+  transition: 100ms;
 }
 
 /* Style the tab content */
 .tabcontent {
-display: none;
-text-align: center;
-padding: 10px 12px;
-width: 100%;
-border-left: none;
-height: 860px;
+  text-align: center;
+  padding: 10px 12px;
+  width: 100%;
+  border-left: none;
+  height: 50%;
+  margin-top: 10px; /* Adjust this value as needed */
 }
-.youtubevid{
-  margin: 35px;
-  width: 80%;
-  height: 350px;
 
 
+/* Style the YouTube video container */
+.youtubevid {
+  width: 100%; /* Set width to 100% for responsiveness */
+  max-width: 800px; /* Optionally set a max-width for larger screens */
+  margin: 0 auto; /* Center the video horizontally */
 }
 
 
@@ -91,8 +115,21 @@ height: 860px;
 }
 
 .inner-container h2 {
-font-size: 24px;
-font-weight: bold;
-margin-bottom: 20px;
-text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.social-container {
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 800px;
+  margin: auto;
+}
+
+.container{
+  max-height: 38%;
 }
