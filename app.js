@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, 'lagoIMG')));
 app.use(sessionMiddleware.initializeSession({
   cookie: {
     sameSite: 'None',
-    secure: true,
+    secure: false,
   },
 })); // Use the session middleware
 
