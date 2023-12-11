@@ -19,7 +19,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 // Define routes for uploading logo, lagoHead, and sideBar images
-['logo', 'lagoHead', 'sideBar'].forEach((imagename) => {
+['logo', 'lagoHead', 'sideBar', 'lagoBack'].forEach((imagename) => {
   router.post(`/lagoIMG/${imagename}`, upload.single(imagename), (req, res, next) => {
     if (!req.file) {
       res.status(400);

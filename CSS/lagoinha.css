@@ -297,7 +297,7 @@ ul li {
 
 .display-container img {
     filter: brightness(50%);
-  }
+}
 
 /* ---------------------------------------- */
 /* Footer Styles */
@@ -315,4 +315,15 @@ footer {
   
 .menu.show {
     display: block;
+}
+
+
+.display-container2 {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.display-container2 img {
+    filter: brightness(80%);
 }
