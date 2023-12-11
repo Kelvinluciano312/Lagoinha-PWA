@@ -20,7 +20,7 @@ const initializeSession = () => {
     saveUninitialized: true, // Save uninitialized sessions
     store: sessionStore, // Use the MySQL session store
     cookie: {
-      secure: false, // Set to true when deploying with HTTPS (false for HTTP)
+      secure: true, // Set to true when deploying with HTTPS (false for HTTP)
       sameSite: 'None', // Cookie attribute to prevent CSRF attacks
     },
   });
