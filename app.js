@@ -19,7 +19,7 @@ app.use(sessionMiddleware.initializeSession({
     sameSite: 'None',
     secure: false,
   },
-})); // Use the session middleware
+}));
 
 // Parse JSON and URL-encoded data
 app.use(bodyParser.json());
