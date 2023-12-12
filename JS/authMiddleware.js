@@ -21,7 +21,7 @@ const initializeSession = () => {
     store: sessionStore, // Use the MySQL session store
     cookie: {
       secure: false, // Set to true when deploying with HTTPS (false for HTTP)
-      sameSite: 'None',
+      sameSite: 'Lax',
     },
   });
 };
